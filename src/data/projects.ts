@@ -18,7 +18,7 @@ export const projects: ProjectItem[] = [
       "Illustrative construction image. Replace with a real project photograph and details.",
     location: "Project location",
     imageLabel: "Residential",
-    imageUrl: image("photo-1503387762-592deb58ef4e"),
+    imageUrl: image("photo-1685464196339-46a985b2049b"),
   },
   {
     category: "RCC / Slab",
@@ -27,7 +27,7 @@ export const projects: ProjectItem[] = [
       "Illustrative concrete-work image. Replace with a real slab or finishing photograph.",
     location: "Project location",
     imageLabel: "RCC / Slab",
-    imageUrl: image("photo-1541888946425-d81bb19240f5"),
+    imageUrl: image("photo-1743130940742-c0d1fff97f1c"),
   },
   {
     category: "Commercial",
@@ -36,7 +36,7 @@ export const projects: ProjectItem[] = [
       "Illustrative construction image. Replace with a real commercial project photograph.",
     location: "Project location",
     imageLabel: "Commercial",
-    imageUrl: image("photo-1504307651254-35680f356dfd"),
+    imageUrl: image("photo-1627591637320-fcfe8c34b62d"),
   },
   {
     category: "Road / Civil",
@@ -45,7 +45,7 @@ export const projects: ProjectItem[] = [
       "Illustrative civil-work image. Replace with a real road or civil project photograph.",
     location: "Project location",
     imageLabel: "Road / Civil",
-    imageUrl: image("photo-1511818966892-d7d671e672a2"),
+    imageUrl: image("photo-1647252397463-4724e68ffbd3"),
   },
   {
     category: "RCC / Slab",
@@ -54,6 +54,6 @@ export const projects: ProjectItem[] = [
       "Illustrative concrete finishing image. Replace with a real machine/service photograph.",
     location: "Project location",
     imageLabel: "Concrete Finishing",
-    imageUrl: image("photo-1590644365607-1c5a4c8e4c2c"),
+    imageUrl: image("photo-1743130940742-c0d1fff97f1c"),
   },
 ];
