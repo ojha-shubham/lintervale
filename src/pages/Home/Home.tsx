@@ -39,7 +39,6 @@ export default function Home() {
   return (
     <>
       <section className="hero">
-        <div className="hero__texture" />
         <div className="container hero__grid">
           <div className="hero__content">
             <span className="eyebrow">
@@ -167,7 +166,7 @@ export default function Home() {
           <div>
             <div className="machine-section__visual">
               <img
-                src="https://images.unsplash.com/photo-1590644365607-1c5a4c8e4c2c?auto=format&fit=crop&w=1200&q=85"
+                src={constructionImages[1].src}
                 alt="Concrete work on an active construction site"
                 loading="lazy"
               />
