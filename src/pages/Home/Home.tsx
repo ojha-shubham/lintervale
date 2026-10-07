@@ -78,9 +78,7 @@ export default function Home() {
                 alt={constructionImages[0].alt}
               />
               <div className="hero__photo-overlay" />
-              <span className="hero__photo-label">
-                ON SITE / CONSTRUCTION
-              </span>
+              <span className="hero__photo-label">ON SITE / CONSTRUCTION</span>
             </div>
             <div className="hero__stamp">
               <HardHat size={18} />

@@ -258,8 +258,8 @@ h2 {
   z-index: 1;
   inset: 0 5px 0 0;
   overflow: hidden;
-  border: 8px solid rgba(255,255,255,0.72);
-  box-shadow: 0 25px 60px rgba(22,22,20,0.18);
+  border: 8px solid rgba(255, 255, 255, 0.72);
+  box-shadow: 0 25px 60px rgba(22, 22, 20, 0.18);
   transform: rotate(2deg);
 }
 .hero__photo img {
@@ -272,7 +272,11 @@ h2 {
 .hero__photo-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(245,184,0,0.08), rgba(20,20,20,0.48));
+  background: linear-gradient(
+    135deg,
+    rgba(245, 184, 0, 0.08),
+    rgba(20, 20, 20, 0.48)
+  );
 }
 .hero__photo-label {
   position: absolute;
@@ -627,7 +631,11 @@ h2 {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(20, 20, 20, 0.02), rgba(20, 20, 20, 0.55));
+  background: linear-gradient(
+    180deg,
+    rgba(20, 20, 20, 0.02),
+    rgba(20, 20, 20, 0.55)
+  );
   pointer-events: none;
 }
 
@@ -671,7 +679,11 @@ h2 {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(20, 20, 20, 0.05), rgba(20, 20, 20, 0.58));
+  background: linear-gradient(
+    180deg,
+    rgba(20, 20, 20, 0.05),
+    rgba(20, 20, 20, 0.58)
+  );
 }
 
 .machine-section__visual span {
@@ -970,7 +982,11 @@ h2 {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(24,24,24,0.05), rgba(24,24,24,0.2));
+  background: linear-gradient(
+    180deg,
+    rgba(24, 24, 24, 0.05),
+    rgba(24, 24, 24, 0.2)
+  );
 }
 .project-card__category {
   position: absolute;
