@@ -50,8 +50,8 @@ export default function Footer() {
           <span>
             © {new Date().getFullYear()} {siteConfig.name}.{" "}
             {h
-              ? "Business information baad mein configure ki ja sakti hai."
-              : "Business information placeholders are ready to configure."}
+              ? "All rights reserved."
+              : "All rights reserved."}
           </span>
           <span>
             {h
