@@ -42,7 +42,10 @@ export default function Navbar() {
               <button
                 key={item}
                 className={language === item ? "is-active" : ""}
-                onClick={() => setLanguage(item)}
+                onClick={() => {
+                  setLanguage(item);
+                  setOpen(false);
+                }}
               >
                 {item === "en" ? "ENGLISH" : "HINGLISH"}
               </button>
