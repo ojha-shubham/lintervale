@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import Button from "../../components/Button/Button";
-import SectionTitle from "../../components/SectionTitle/SectionTitle";
+// import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import ServiceCard from "../../components/ServiceCard/ServiceCard";
 import ContactCTA from "../../components/ContactCTA/ContactCTA";
 import { services } from "../../data/services";
