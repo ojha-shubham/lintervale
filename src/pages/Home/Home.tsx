@@ -19,69 +19,47 @@ import { useLanguage } from "../../context/LanguageContext";
 
 export default function Home() {
   const { language } = useLanguage();
-  const h = language === "hinglish";
-  const steps = h
+  const isHinglish = language === "hinglish";
+
+  const steps = isHinglish
     ? [
-        [
-          "01",
-          "Site Details Bhejein",
-          "Kahan, kab aur kya chahiye — basic details batayein.",
-        ],
-        [
-          "02",
-          "Machine Availability Check",
-          "Requested date aur site requirement hum check karenge.",
-        ],
-        [
-          "03",
-          "Timing & Charges Confirm",
-          "Request confirm hone se pehle hum aapse contact karenge.",
-        ],
-        [
-          "04",
-          "Machine Site Par",
-          "Agreed plan ke hisaab se service timing coordinate hogi.",
-        ],
+        ["01", "Details Bhejiye", "Site kahan hai, kab kaam hai aur kya chahiye — bas itna batayein."],
+        ["02", "Date Check Hogi", "Requested date aur site ke hisaab se machine availability dekhenge."],
+        ["03", "Rate & Time Confirm", "Availability ke baad call karke timing aur charges confirm karenge."],
+        ["04", "Site Par Kaam", "Fix plan ke hisaab se machine/service site par coordinate hogi."],
       ]
     : [
-        ["01", "Submit Site Details", "Tell us where, when and what you need."],
-        [
-          "02",
-          "Check Machine Availability",
-          "We review the requested date and site requirement.",
-        ],
-        [
-          "03",
-          "Confirm Timing & Charges",
-          "We contact you before the request is confirmed.",
-        ],
-        [
-          "04",
-          "Machine Reaches Your Site",
-          "Service timing is coordinated around the agreed plan.",
-        ],
+        ["01", "Share the Details", "Tell us where the site is, when you need the service and what work is required."],
+        ["02", "We Check the Date", "We check machine availability for your requested date and site."],
+        ["03", "Confirm Rate & Time", "Once availability is checked, we confirm the timing and charges with you."],
+        ["04", "Service at the Site", "The machine/service is coordinated for the agreed date and time."],
       ];
-  const serviceData = h
-    ? services.slice(0, 4).map((s) => ({
-        ...s,
-        title: s.hinglishTitle,
-        description: s.hinglishDescription,
+
+  const serviceData = isHinglish
+    ? services.slice(0, 4).map((service) => ({
+        ...service,
+        title: service.hinglishTitle,
+        description: service.hinglishDescription,
       }))
     : services.slice(0, 4);
+
   return (
     <>
       <section className="hero">
         <div className="container hero__grid">
           <div className="hero__content">
             <span className="eyebrow">
-              Construction • Civil • Concrete Finishing
+              {isHinglish
+                ? "Construction • RCC • Linter Machine"
+                : "Construction • RCC • Concrete Finishing"}
             </span>
+
             <h1>
-              {h ? (
+              {isHinglish ? (
                 <>
-                  Mazboot Banayein.
+                  Ghar Ho Ya Slab.
                   <br />
-                  <em>Better Banayein.</em>
+                  <em>Kaam Seedha Rakhiye.</em>
                 </>
               ) : (
                 <>
@@ -91,147 +69,127 @@ export default function Home() {
                 </>
               )}
             </h1>
+
             <p>
-              {h
-                ? "House, slab, road aur civil projects ke liye professional construction services aur concrete finishing machine support."
-                : "Professional construction services and concrete finishing machine support for house, slab, road and civil projects."}
+              {isHinglish
+                ? "Ghar, RCC, slab aur civil work ke saath linter machine service ke liye direct enquiry karein."
+                : "Construction, RCC, slab and civil work support, with a direct enquiry option for linter machine service."}
             </p>
+
             <div className="hero__actions">
               <Button to="/machine">
-                {h ? "Linter Machine Book Karein" : "Book Linter Machine"}{" "}
+                {isHinglish ? "Linter Machine Ke Liye Enquiry" : "Enquire About Linter Machine"}{" "}
                 <ArrowRight size={18} />
               </Button>
               <Button variant="ghost" to="/contact">
-                {h ? "Construction Quote Lejiye" : "Get Construction Quote"}
+                {isHinglish ? "Construction Kaam Ke Liye Baat Karein" : "Talk About Construction Work"}
               </Button>
             </div>
+
             <div className="hero__meta">
               <span>
-                <CircleDot size={15} />{" "}
-                {h ? "Site-focused service" : "Site-focused service"}
+                <CircleDot size={15} />
+                {isHinglish ? "Site aur date pehle check" : "Site and date checked first"}
               </span>
               <span>
-                <ShieldCheck size={15} />{" "}
-                {h ? "Enquiry-first process" : "Enquiry-first process"}
+                <ShieldCheck size={15} />
+                {isHinglish ? "Final confirmation baat karke" : "Final confirmation by phone"}
               </span>
             </div>
           </div>
+
           <div className="hero__visual">
             <div className="hero__photo">
-              <img
-                src={constructionImages[0].src}
-                alt={constructionImages[0].alt}
-              />
+              <img src={constructionImages[0].src} alt={constructionImages[0].alt} />
               <div className="hero__photo-overlay" />
               <span className="hero__photo-label">
-                {h ? "ON SITE / CONSTRUCTION" : "ON SITE / CONSTRUCTION"}
+                {isHinglish ? "SITE PAR KAAM" : "WORK ON SITE"}
               </span>
             </div>
+
             <div className="hero__stamp">
               <HardHat size={18} />
               <span>
-                {h ? (
-                  <>
-                    Construction
-                    <br />
-                    Support
-                  </>
+                {isHinglish ? (
+                  <>Construction<br />& Machine Service</>
                 ) : (
-                  <>
-                    Construction
-                    <br />
-                    Support
-                  </>
+                  <>Construction<br />& Machine Service</>
                 )}
               </span>
             </div>
           </div>
         </div>
+
         <a className="hero__scroll" href="#trust">
-          <ArrowDown size={17} /> {h ? "Neeche Dekhein" : "Scroll to explore"}
+          <ArrowDown size={17} /> {isHinglish ? "Neeche Dekhein" : "See More"}
         </a>
       </section>
+
       <section className="trust-strip" id="trust">
         <div className="container trust-strip__grid">
-          {(h
+          {(isHinglish
             ? [
-                [
-                  "01",
-                  "Reliable Site Coordination",
-                  "Clear enquiry & scheduling",
-                ],
-                [
-                  "02",
-                  "Concrete Finishing Equipment",
-                  "Slab work ke liye machine support",
-                ],
-                ["03", "Construction Support", "Practical local execution"],
-                ["04", "Direct Enquiry", "Business se seedhi baat"],
+                ["01", "Machine Enquiry", "Date aur location share karein"],
+                ["02", "RCC / Slab Work", "Concrete aur slab ka kaam"],
+                ["03", "Civil Work", "Road aur local civil work"],
+                ["04", "Seedhi Baat", "Call ya WhatsApp par baat"],
               ]
             : [
-                [
-                  "01",
-                  "Reliable Site Coordination",
-                  "Clear enquiry & scheduling",
-                ],
-                [
-                  "02",
-                  "Concrete Finishing Equipment",
-                  "Machine support for slab work",
-                ],
-                ["03", "Construction Support", "Practical local execution"],
-                ["04", "Direct Enquiry", "Talk to the business directly"],
+                ["01", "Machine Enquiry", "Share your date and location"],
+                ["02", "RCC / Slab Work", "Concrete and slab work"],
+                ["03", "Civil Work", "Road and local civil work"],
+                ["04", "Direct Contact", "Call or WhatsApp directly"],
               ]
-          ).map((x) => (
-            <div key={x[0]}>
-              <span className="trust-number">{x[0]}</span>
+          ).map((item) => (
+            <div key={item[0]}>
+              <span className="trust-number">{item[0]}</span>
               <span>
-                <strong>{x[1]}</strong>
-                <small>{x[2]}</small>
+                <strong>{item[1]}</strong>
+                <small>{item[2]}</small>
               </span>
             </div>
           ))}
         </div>
       </section>
+
       <section className="section section--light">
         <div className="container">
           <SectionTitle
-            eyebrow={h ? "Hum kya karte hain" : "What we do"}
-            title={
-              h
-                ? "Construction Work, Bina Confusion Ke."
-                : "Construction Work, Without the Guesswork."
-            }
+            eyebrow={isHinglish ? "Services" : "Services"}
+            title={isHinglish ? "Aapko Kaun Sa Kaam Karwana Hai?" : "What Work Do You Need?"}
             description={
-              h
-                ? "Un logon ke liye practical services jinko dependable construction support aur site par sahi equipment chahiye."
-                : "A practical service offering for people who need dependable construction support and the right equipment at the site."
+              isHinglish
+                ? "Ghar se lekar RCC, slab, road aur civil work tak — apni requirement seedhe batayein."
+                : "From house construction to RCC, slab, road and civil work — tell us what you need and we can discuss the job."
             }
           />
+
           <div className="service-grid">
-            {serviceData.map((s) => (
-              <ServiceCard key={s.title} service={s} />
+            {serviceData.map((service) => (
+              <ServiceCard key={service.title} service={service} />
             ))}
           </div>
+
           <div className="section-link">
             <Button variant="ghost" to="/services">
-              {h ? "Saari Services Dekhein" : "View all services"}{" "}
-              <ArrowRight size={17} />
+              {isHinglish ? "Saari Services Dekhein" : "See All Services"} <ArrowRight size={17} />
             </Button>
           </div>
         </div>
       </section>
+
       <section className="construction-gallery">
         <div className="container">
           <SectionTitle
-            eyebrow={h ? "On-site kaam" : "On-site work"}
-            title={h ? "Construction In Action." : "Construction In Action."}
+            eyebrow={isHinglish ? "Kaam ke examples" : "Work examples"}
+            title={isHinglish ? "Construction, RCC Aur Civil Work." : "Construction, RCC & Civil Work."}
             description={
-              h
-                ? "Building, civil aur concrete work ka visual overview. Baad mein real project photos yahan add ki ja sakti hain."
-                : "A visual introduction to building, civil and concrete work. Real project photographs can replace these illustrative images later."
+              isHinglish
+                ? "Yahan abhi category photos hain. Actual site photos milne par isi jagah real kaam dikhaya ja sakta hai."
+                : "These images are used to show the type of work. They can be replaced with actual site photographs as the business builds its gallery."
             }
           />
+
           <div className="construction-gallery__grid">
             {constructionImages.slice(1, 5).map((image, index) => (
               <figure
@@ -245,6 +203,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <section className="machine-section">
         <div className="container machine-section__grid">
           <div>
@@ -254,140 +213,104 @@ export default function Home() {
                 alt="Concrete work on an active construction site"
                 loading="lazy"
               />
-              <span>CONCRETE / SLAB WORK</span>
+              <span>{isHinglish ? "RCC / SLAB WORK" : "CONCRETE / SLAB WORK"}</span>
             </div>
           </div>
+
           <div>
-            <span className="eyebrow">
-              {h ? "The Linter Machine" : "The Linter Machine"}
-            </span>
+            <span className="eyebrow">{isHinglish ? "Linter Machine" : "Linter Machine"}</span>
             <h2>
-              {h
-                ? "Slab ke liye Linter Machine chahiye?"
-                : "Need a Linter Machine for Your Slab?"}
+              {isHinglish ? "Slab Ke Liye Linter Machine Chahiye?" : "Need a Linter Machine for Your Slab?"}
             </h2>
             <p className="lead">
-              {h
-                ? "Ghar se enquiry kijiye. Site details, required date aur approx slab area share karein. Confirm karne se pehle hum availability check karenge."
-                : "Enquire from home. Share your site details, required date and approximate slab area. We’ll check availability before anything is confirmed."}
+              {isHinglish
+                ? "Location, date aur approx area share karein. Pehle availability check hogi, phir rate aur timing confirm karenge."
+                : "Share your location, required date and approximate area. We check availability first, then confirm the rate and timing with you."}
             </p>
+
             <div className="feature-list">
               <FeatureCard
                 icon={Wrench}
-                title={h ? "Concrete Finishing" : "Concrete Finishing"}
-                text={
-                  h
-                    ? "Concrete aur slab finishing work ke liye support."
-                    : "Support for concrete and slab finishing work."
-                }
+                title={isHinglish ? "Concrete Finishing" : "Concrete Finishing"}
+                text={isHinglish ? "Slab aur concrete finishing ke liye machine support." : "Machine support for slab and concrete finishing work."}
               />
               <FeatureCard
                 icon={HardHat}
-                title={h ? "Site-Based Service" : "Site-Based Service"}
-                text={
-                  h
-                    ? "Scheduling mein aapke project details important rahenge."
-                    : "Your project details stay central to scheduling."
-                }
+                title={isHinglish ? "Site Ke Hisaab Se" : "Based on the Site"}
+                text={isHinglish ? "Location, area aur date dekhkar requirement samjhenge." : "We look at the location, area and date before confirming the service."}
               />
               <FeatureCard
                 icon={Truck}
-                title={h ? "Availability Enquiry" : "Availability Enquiry"}
-                text={
-                  h
-                    ? "Service se pehle timing aur charges confirm karein."
-                    : "Confirm timing and charges before the service."
-                }
+                title={isHinglish ? "Timing Confirm" : "Timing Confirmed"}
+                text={isHinglish ? "Service se pehle timing aur charges clear karenge." : "Timing and charges are confirmed before the service."}
               />
             </div>
+
             <Button to="/machine">
-              {h
-                ? "Machine Availability Check Karein"
-                : "Check Machine Availability"}{" "}
+              {isHinglish ? "Machine Ke Liye Enquiry Karein" : "Enquire About the Machine"}{" "}
               <ArrowRight size={17} />
             </Button>
           </div>
         </div>
       </section>
+
       <section className="section section--light">
         <div className="container">
           <SectionTitle
-            eyebrow={h ? "Simple process" : "Simple process"}
-            title={
-              h
-                ? "Site Details Se Site Arrival Tak."
-                : "From Site Details to Site Arrival."
-            }
+            eyebrow={isHinglish ? "Kaise hoga kaam?" : "How it works"}
+            title={isHinglish ? "Baat Se Site Tak." : "From Enquiry to Site."}
             align="center"
           />
+
           <div className="process-grid">
-            {steps.map((s) => (
-              <div className="process-step" key={s[0]}>
-                <span>{s[0]}</span>
+            {steps.map((step) => (
+              <div className="process-step" key={step[0]}>
+                <span>{step[0]}</span>
                 <div>
-                  <h3>{s[1]}</h3>
-                  <p>{s[2]}</p>
+                  <h3>{step[1]}</h3>
+                  <p>{step[2]}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
       <section className="section section--dark">
         <div className="container">
           <SectionTitle
-            eyebrow="Why LinterVale"
-            title={
-              h
-                ? "Real Site Needs Ke Around Built."
-                : "Built Around Practical Site Needs."
-            }
+            eyebrow={isHinglish ? "Seedhi baat" : "What you can expect"}
+            title={isHinglish ? "Pehle Details. Phir Confirmation." : "Details First. Confirmation Next."}
             description={
-              h
-                ? "Koi fake claim nahi. Construction capability, equipment support aur direct communication ko simple tareeke se present kiya gaya hai."
-                : "No inflated claims. Just a clear way to present construction capability, equipment support and direct communication."
+              isHinglish
+                ? "Aap location, date aur kaam ki basic details batayein. Availability aur charges clear hone ke baad hi final confirmation hoga."
+                : "Share the location, date and basic job details. Final confirmation happens after availability and charges are clear."
             }
           />
+
           <div className="capability-grid">
-            {(h
+            {(isHinglish
               ? [
-                  [
-                    "Construction-first approach",
-                    "Real site requirements ke around design kiya gaya hai.",
-                  ],
-                  [
-                    "Equipment as a service",
-                    "Concrete finishing support ke liye dedicated enquiry path.",
-                  ],
-                  [
-                    "Clear enquiry process",
-                    "Booking confirm hone se pehle availability aur charges check hote hain.",
-                  ],
+                  ["Ghar / RCC / Slab", "Apne kaam ka type aur approx area batayein."],
+                  ["Linter Machine", "Date aur site location ke saath machine enquiry karein."],
+                  ["Road / Civil Work", "Kaam ki jagah aur requirement share karein."],
                 ]
               : [
-                  [
-                    "Construction-first approach",
-                    "Designed around real site requirements rather than a generic service catalogue.",
-                  ],
-                  [
-                    "Equipment as a service",
-                    "A dedicated path for customers looking specifically for concrete finishing support.",
-                  ],
-                  [
-                    "Clear enquiry process",
-                    "Availability and charges are checked before the request becomes a confirmed booking.",
-                  ],
+                  ["House / RCC / Slab", "Tell us the type of work and approximate area."],
+                  ["Linter Machine", "Enquire with the required date and site location."],
+                  ["Road / Civil Work", "Share the work location and what needs to be done."],
                 ]
-            ).map((x) => (
-              <div key={x[0]}>
+            ).map((item) => (
+              <div key={item[0]}>
                 <Check />
-                <strong>{x[0]}</strong>
-                <p>{x[1]}</p>
+                <strong>{item[0]}</strong>
+                <p>{item[1]}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
       <ContactCTA />
     </>
   );
