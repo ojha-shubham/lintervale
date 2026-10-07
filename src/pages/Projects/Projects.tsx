@@ -35,7 +35,7 @@ export default function Projects() {
           <SectionTitle
             eyebrow="Project gallery"
             title="Selected work"
-            description="The cards below are intentionally placeholders until real project information and images are supplied."
+            description="These are illustrative construction images for the first version. Replace them with the business’s real project photographs as they become available."
           />
           <div className="filters" role="group" aria-label="Project categories">
             {filters.map((f) => (
@@ -52,10 +52,7 @@ export default function Projects() {
             {visible.map((p) => (
               <article className="project-card" key={p.title}>
                 <div className="project-card__image">
-                  <div className="placeholder-image">
-                    <span>{p.imageLabel}</span>
-                    <small>IMAGE PLACEHOLDER</small>
-                  </div>
+                  <img src={p.imageUrl} alt={p.imageLabel} loading="lazy" />
                   <span className="project-card__category">{p.category}</span>
                 </div>
                 <div className="project-card__body">
