@@ -108,6 +108,30 @@ a {
   height: 2px;
   background: var(--yellow);
 }
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0 6px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.65);
+}
+.language-switcher button {
+  border: 0;
+  background: transparent;
+  color: #77736b;
+  padding: 6px 8px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  cursor: pointer;
+}
+.language-switcher button:hover,
+.language-switcher button.is-active {
+  background: var(--yellow);
+  color: var(--ink);
+}
 .button {
   min-height: 48px;
   padding: 0 20px;
@@ -1313,6 +1337,10 @@ h2 {
   }
   .navbar__links .button {
     margin-top: 5px;
+  }
+  .language-switcher {
+    margin: 5px 0 2px;
+    justify-content: center;
   }
   .menu-button {
     display: grid;
