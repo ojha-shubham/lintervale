@@ -1,160 +1,88 @@
 import { Mail, MapPin, PhoneCall } from "lucide-react";
-
 import Button from "../../components/Button/Button";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import ContactCTA from "../../components/ContactCTA/ContactCTA";
-
-import { siteConfig, isConfigured } from "../../config/siteConfig";
+import { siteConfig } from "../../config/siteConfig";
 import { callBusiness } from "../../utils/phone";
 import { openMachineWhatsApp } from "../../utils/whatsapp";
 import { useLanguage } from "../../context/LanguageContext";
 
 export default function Contact() {
   const { language } = useLanguage();
-  const h = language === "hinglish";
+  const isHinglish = language === "hinglish";
 
   return (
     <>
-      {/* Hero */}
       <section className="page-hero page-hero--short">
         <div className="container">
-          <span className="eyebrow">{h ? "Contact Karein" : "Contact"}</span>
-
+          <span className="eyebrow">{isHinglish ? "Baat Karein" : "Contact"}</span>
           <h1>
-            {h ? (
-              <>
-                Koi Project
-                <br />
-                <em>mind mein hai?</em>
-              </>
-            ) : (
-              <>
-                Have a Project
-                <br />
-                <em>in Mind?</em>
-              </>
-            )}
+            {isHinglish ? <>Kaam hai?<br /><em>Call karein.</em></> : <>Have work to discuss?<br /><em>Let's talk.</em></>}
           </h1>
-
           <p>
-            {h
-              ? "Construction, civil work ya machine availability ke liye humse baat karein."
-              : "Talk to us about construction, civil work or machine availability."}
+            {isHinglish
+              ? "Construction, RCC, civil work ya linter machine ke liye seedhe baat karein."
+              : "Talk directly about construction, RCC, civil work or linter machine service."}
           </p>
         </div>
       </section>
 
-      {/* Contact Details */}
       <section className="section section--light">
         <div className="container contact-grid">
           <div>
             <SectionTitle
-              eyebrow={h ? "Direct Enquiry" : "Direct enquiry"}
-              title={
-                h
-                  ? "Kaam ke baare mein baat karte hain."
-                  : "Let's talk about the work."
-              }
+              eyebrow={isHinglish ? "Direct Contact" : "Direct contact"}
+              title={isHinglish ? "Apne kaam ki details batayein." : "Tell us about the job."}
               description={
-                h
-                  ? "Apne project ki requirement share karein. Business owner ke real contact details add hone tak yahan configuration placeholders rahenge."
-                  : "Share your project requirement. Contact details are configuration placeholders until the business owner supplies the real information."
-              }
+                isHinglish
+                  ? "Call ya WhatsApp par location, date aur kaam ki basic details share kar sakte hain."
+                  : "Call or WhatsApp with the location, date and a few basic details about the work."}
             />
-
             <div className="contact-actions">
-              <Button onClick={callBusiness}>
-                <PhoneCall size={18} />
-                {h ? "Call Karein" : "Call Now"}
-              </Button>
-
-              <Button variant="secondary" onClick={openMachineWhatsApp}>
-                WhatsApp
-              </Button>
+              <Button onClick={callBusiness}><PhoneCall size={18} /> {isHinglish ? "Call Karein" : "Call Now"}</Button>
+              <Button variant="secondary" onClick={openMachineWhatsApp}>WhatsApp</Button>
             </div>
           </div>
 
           <div className="contact-card">
-            {/* Location */}
             <div>
               <MapPin />
-
               <span>
-                <small>
-                  {h ? "City / Service Area" : "City / Service Area"}
-                </small>
-
-                <strong>
-                  {isConfigured(siteConfig.city)
-                    ? siteConfig.city
-                    : "PRATAPGARH,"}
-                </strong>
-
-                <strong className="muted">
-                  {isConfigured(siteConfig.serviceArea)
-                    ? siteConfig.serviceArea
-                    : "Pratapgarh, Uttar Pradesh, India"}
-                </strong>
+                <small>{isHinglish ? "Service Area" : "Service area"}</small>
+                <strong>{siteConfig.city}</strong>
+                <strong className="muted">{siteConfig.serviceArea}</strong>
               </span>
             </div>
-
-            {/* Phone */}
             <div>
               <PhoneCall />
-
               <span>
-                <small>{h ? "Phone Number" : "Phone"}</small>
-
-                <strong>
-                  {isConfigured(siteConfig.phone)
-                    ? siteConfig.phone
-                    : "YOUR_PHONE_NUMBER"}
-                </strong>
+                <small>{isHinglish ? "Phone" : "Phone"}</small>
+                <strong>{siteConfig.phone}</strong>
               </span>
             </div>
-
-            {/* Email */}
             <div>
               <Mail />
-
               <span>
                 <small>Email</small>
-
-                <strong>
-                  {isConfigured(siteConfig.email)
-                    ? siteConfig.email
-                    : "YOUR_EMAIL"}
-                </strong>
+                <strong>{siteConfig.email}</strong>
               </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Quote CTA */}
       <section className="quote-section">
         <div className="container quote-section__inner">
           <div>
-            <span className="eyebrow">
-              {h ? "Construction Quote" : "Construction quote"}
-            </span>
-
-            <h2>
-              {h
-                ? "Aap kya bana rahe hain, batayein."
-                : "Tell us what you're building."}
-            </h2>
-
+            <span className="eyebrow">{isHinglish ? "Construction Enquiry" : "Construction enquiry"}</span>
+            <h2>{isHinglish ? "Kaam kahan hai aur kab chahiye?" : "Where is the work and when do you need it?"}</h2>
             <p>
-              {h
-                ? "Project type, location aur short requirement WhatsApp ya direct call par share karein."
-                : "For a construction quote, share your project type, location and a short requirement through WhatsApp or direct call."}
+              {isHinglish
+                ? "Project type, location, date aur short requirement WhatsApp ya call par bhej dein."
+                : "Send the project type, location, date and a short description by WhatsApp or phone."}
             </p>
           </div>
-
-          <Button onClick={openMachineWhatsApp}>
-            {h ? "Enquiry Start Karein" : "Start Enquiry"}
-          </Button>
+          <Button onClick={openMachineWhatsApp}>{isHinglish ? "WhatsApp Par Enquiry" : "Enquire on WhatsApp"}</Button>
         </div>
       </section>
 
