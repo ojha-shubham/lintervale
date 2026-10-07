@@ -7,20 +7,17 @@ import Services from "./pages/Services/Services";
 import Projects from "./pages/Projects/Projects";
 import MachineBooking from "./pages/MachineBooking/MachineBooking";
 import Contact from "./pages/Contact/Contact";
+import { LanguageProvider } from "./context/LanguageContext";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, [pathname]);
-
+  useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, [pathname]);
   return null;
 }
 
 export default function App() {
   return (
-    <>
+    <LanguageProvider>
       <ScrollToTop />
       <Routes>
         <Route element={<MainLayout />}>
@@ -33,6 +30,6 @@ export default function App() {
           <Route path="*" element={<Home />} />
         </Route>
       </Routes>
-    </>
+    </LanguageProvider>
   );
 }
