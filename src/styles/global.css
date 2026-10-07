@@ -210,14 +210,7 @@ h2 {
   display: flex;
   align-items: center;
   background: #e5e1d8;
-}
-.hero__texture {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(36, 36, 36, 0.03) 1px, transparent 1px),
-    linear-gradient(rgba(36, 36, 36, 0.03) 1px, transparent 1px);
-  background-size: 48px 48px;
+  overflow: hidden;
 }
 .hero__grid {
   display: grid;
