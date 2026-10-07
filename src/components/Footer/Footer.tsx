@@ -7,7 +7,8 @@ import { useLanguage } from "../../context/LanguageContext";
 
 export default function Footer() {
   const { language } = useLanguage();
-  const h = language === "hinglish";
+  const isHinglish = language === "hinglish";
+
   return (
     <footer className="footer">
       <div className="container">
@@ -17,47 +18,29 @@ export default function Footer() {
               <span className="brand__mark">LV</span>
               <span>LinterVale</span>
             </Link>
-            <p>
-              {h
-                ? "Construction • Civil • Concrete Finishing"
-                : "Construction • Civil • Concrete Finishing"}
-            </p>
+            <p>{isHinglish ? "Ghar • RCC • Slab • Civil • Linter Machine" : "House • RCC • Slab • Civil • Linter Machine"}</p>
           </div>
+
           <div className="footer__links">
             <div>
-              <span className="footer__label">{h ? "Explore" : "Explore"}</span>
-              <Link to="/about">{h ? "About" : "About"}</Link>
-              <Link to="/services">{h ? "Services" : "Services"}</Link>
-              <Link to="/projects">{h ? "Projects" : "Projects"}</Link>
+              <span className="footer__label">{isHinglish ? "Pages" : "Pages"}</span>
+              <Link to="/about">{isHinglish ? "About" : "About"}</Link>
+              <Link to="/services">{isHinglish ? "Services" : "Services"}</Link>
+              <Link to="/projects">{isHinglish ? "Work Types" : "Work Types"}</Link>
             </div>
+
             <div>
-              <span className="footer__label">
-                {h ? "Enquiries" : "Enquiries"}
-              </span>
-              <button onClick={callBusiness}>
-                <PhoneCall size={15} /> {h ? "Call Karein" : "Call Now"}
-              </button>
-              <button onClick={openMachineWhatsApp}>
-                WhatsApp <ArrowUpRight size={15} />
-              </button>
-              <Link to="/machine">
-                {h ? "Machine Booking" : "Machine Booking"}
-              </Link>
+              <span className="footer__label">{isHinglish ? "Contact" : "Contact"}</span>
+              <button onClick={callBusiness}><PhoneCall size={15} /> {isHinglish ? "Call Karein" : "Call Now"}</button>
+              <button onClick={openMachineWhatsApp}>WhatsApp <ArrowUpRight size={15} /></button>
+              <Link to="/machine">{isHinglish ? "Machine Enquiry" : "Machine Enquiry"}</Link>
             </div>
           </div>
         </div>
+
         <div className="footer__bottom">
-          <span>
-            © {new Date().getFullYear()} {siteConfig.name}.{" "}
-            {h
-              ? "All rights reserved."
-              : "All rights reserved."}
-          </span>
-          <span>
-            {h
-              ? "Local enquiries ke liye banaya gaya."
-              : "Built for practical local enquiries."}
-          </span>
+          <span>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</span>
+          <span>{isHinglish ? "Local construction enquiries." : "Local construction enquiries."}</span>
         </div>
       </div>
     </footer>
