@@ -8,8 +8,9 @@
   --muted: #68655e;
   --paper: #f2f0eb;
   --white: #fff;
-  --yellow: #f0b90b;
-  --yellow-soft: #f8d66b;
+  --yellow: #f5b800;
+  --yellow-soft: #ffd45a;
+  --orange: #e87500;
   --line: #d8d4cc;
   --dark: #202020;
   --shadow: 0 20px 50px rgba(22, 22, 20, 0.09);
@@ -129,7 +130,7 @@ a {
   color: var(--ink);
 }
 .button--primary:hover {
-  background: var(--yellow-soft);
+  background: var(--orange);
 }
 .button--secondary {
   background: var(--white);
@@ -149,7 +150,7 @@ a {
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 3px solid rgba(240, 185, 11, 0.45);
+  outline: 3px solid rgba(245, 184, 0, 0.45);
   outline-offset: 3px;
 }
 .menu-button {
@@ -808,6 +809,25 @@ h2 {
   letter-spacing: 0.16em;
   margin-top: 8px;
 }
+
+.project-card__image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.03);
+  transition: transform 0.35s ease;
+}
+.project-card:hover .project-card__image img {
+  transform: scale(1.04);
+}
+.project-card__image:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(24,24,24,0.05), rgba(24,24,24,0.2));
+}
 .project-card__category {
   position: absolute;
   top: 16px;
@@ -858,7 +878,7 @@ h2 {
   font-weight: 700;
 }
 .check-list svg {
-  color: #8e7a08;
+  color: var(--orange);
   width: 17px;
 }
 .info-box {
@@ -989,7 +1009,7 @@ h2 {
   border: 0;
 }
 .contact-card svg {
-  color: #85761c;
+  color: var(--orange);
   flex: none;
 }
 .contact-card small,
