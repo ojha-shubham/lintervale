@@ -115,7 +115,7 @@ a {
   margin: 0 6px;
   padding: 3px;
   border: 1px solid var(--line);
-  background: rgba(255,255,255,.65);
+  background: rgba(255, 255, 255, 0.65);
 }
 .language-switcher button {
   border: 0;
@@ -124,7 +124,7 @@ a {
   padding: 6px 8px;
   font-size: 9px;
   font-weight: 800;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
   cursor: pointer;
 }
 .language-switcher button:hover,
