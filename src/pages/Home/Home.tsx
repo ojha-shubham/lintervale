@@ -12,9 +12,9 @@ import Button from "../../components/Button/Button";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import ServiceCard from "../../components/ServiceCard/ServiceCard";
 import FeatureCard from "../../components/FeatureCard/FeatureCard";
-import MachineVisual from "../../components/MachineVisual/MachineVisual";
 import ContactCTA from "../../components/ContactCTA/ContactCTA";
 import { services } from "../../data/services";
+import { constructionImages } from "../../data/constructionImages";
 
 export default function Home() {
   const steps = [
@@ -35,6 +35,7 @@ export default function Home() {
       "Service timing is coordinated around the agreed plan.",
     ],
   ];
+
   return (
     <>
       <section className="hero">
@@ -70,20 +71,22 @@ export default function Home() {
               </span>
             </div>
           </div>
+
           <div className="hero__visual">
             <div className="hero__photo">
               <img
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=85"
-                alt="Construction site with concrete and structural work"
+                src={constructionImages[0].src}
+                alt={constructionImages[0].alt}
               />
               <div className="hero__photo-overlay" />
-              <span className="hero__photo-label">ON SITE / CONSTRUCTION</span>
+              <span className="hero__photo-label">
+                ON SITE / CONSTRUCTION
+              </span>
             </div>
-            <MachineVisual />
             <div className="hero__stamp">
               <HardHat size={18} />
               <span>
-                Equipment
+                Construction
                 <br />
                 Support
               </span>
@@ -94,6 +97,7 @@ export default function Home() {
           <ArrowDown size={17} /> Scroll to explore
         </a>
       </section>
+
       <section className="trust-strip" id="trust">
         <div className="container trust-strip__grid">
           {[
@@ -116,6 +120,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+
       <section className="section section--light">
         <div className="container">
           <SectionTitle
@@ -135,10 +140,39 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="construction-gallery">
+        <div className="container">
+          <SectionTitle
+            eyebrow="On-site work"
+            title="Construction In Action."
+            description="A visual introduction to building, civil and concrete work. Real project photographs can replace these illustrative images later."
+          />
+          <div className="construction-gallery__grid">
+            {constructionImages.slice(1, 5).map((image, index) => (
+              <figure
+                className={`construction-gallery__item construction-gallery__item--${index + 1}`}
+                key={image.src}
+              >
+                <img src={image.src} alt={image.alt} loading="lazy" />
+                <figcaption>{image.label}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="machine-section">
         <div className="container machine-section__grid">
           <div>
-            <MachineVisual compact />
+            <div className="machine-section__visual">
+              <img
+                src="https://images.unsplash.com/photo-1590644365607-1c5a4c8e4c2c?auto=format&fit=crop&w=1200&q=85"
+                alt="Concrete work on an active construction site"
+                loading="lazy"
+              />
+              <span>CONCRETE / SLAB WORK</span>
+            </div>
           </div>
           <div>
             <span className="eyebrow">The Linter Machine</span>
@@ -171,6 +205,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <section className="section section--light">
         <div className="container">
           <SectionTitle
@@ -191,6 +226,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <section className="section section--dark">
         <div className="container">
           <SectionTitle
@@ -222,6 +258,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <ContactCTA />
     </>
   );
