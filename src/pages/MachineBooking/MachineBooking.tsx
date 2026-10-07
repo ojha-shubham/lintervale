@@ -9,122 +9,81 @@ import { useLanguage } from "../../context/LanguageContext";
 
 export default function MachineBooking() {
   const { language } = useLanguage();
-  const h = language === "hinglish";
+  const isHinglish = language === "hinglish";
+
   return (
     <>
       <section className="page-hero page-hero--machine">
         <div className="container">
-          <span className="eyebrow">
-            {h ? "Machine Service" : "Machine Service"}
-          </span>
+          <span className="eyebrow">{isHinglish ? "Linter Machine" : "Linter Machine"}</span>
           <h1>
-            {h ? (
-              <>
-                Concrete finishing,
-                <br />
-                <em>ab aur easy.</em>
-              </>
+            {isHinglish ? (
+              <>Slab ka kaam hai?<br /><em>Machine ki enquiry karein.</em></>
             ) : (
-              <>
-                Concrete finishing,
-                <br />
-                <em>made easier.</em>
-              </>
+              <>Need a concrete<br /><em>finishing machine?</em></>
             )}
           </h1>
           <p>
-            {h
-              ? "Ghar se site details bhejiye. Hum availability check karke machine service confirm karenge."
-              : "Share your site details from home. We’ll check availability before confirming the machine service."}
+            {isHinglish
+              ? "Location, date aur approx slab area batayein. Availability check karke rate aur timing confirm karenge."
+              : "Tell us the location, date and approximate slab area. We’ll check availability and confirm the rate and timing."}
           </p>
           <div className="hero__actions">
-            <Button
-              onClick={() =>
-                document
-                  .getElementById("booking")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-            >
-              {h ? "Machine Request Karein" : "Request Machine"}{" "}
-              <ArrowRight size={17} />
+            <Button onClick={() => document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" })}>
+              {isHinglish ? "Details Bhejein" : "Send Details"} <ArrowRight size={17} />
             </Button>
             <Button variant="ghost" onClick={openMachineWhatsApp}>
-              WhatsApp par Enquire Karein
+              {isHinglish ? "WhatsApp Par Baat Karein" : "Ask on WhatsApp"}
             </Button>
           </div>
         </div>
       </section>
+
       <section className="machine-explainer section">
         <div className="container machine-explainer__grid">
           <MachineVisual compact />
           <div>
             <SectionTitle
-              eyebrow={
-                h ? "Service mein kya milega" : "What the service covers"
-              }
-              title={
-                h
-                  ? "Sahi finish ke liye sahi equipment."
-                  : "The right equipment for the right finish."
-              }
+              eyebrow={isHinglish ? "Machine kis kaam aati hai?" : "What is the machine for?"}
+              title={isHinglish ? "Concrete ko finish karne ke liye." : "For finishing freshly laid concrete."}
               description={
-                h
-                  ? "Machine service concrete/slab finishing ke liye hai, jahan site condition aur timing pehle check karna zaroori hai."
-                  : "The machine service is intended for concrete/slab finishing requirements where site conditions and timing need to be checked in advance."
-              }
+                isHinglish
+                  ? "Power trowel / linter machine concrete slab aur floor finishing mein use hoti hai. Exact suitability site aur concrete condition par depend karegi."
+                  : "A power trowel / linter machine is used for concrete slab and floor finishing. Exact suitability depends on the site and concrete condition."}
             />
             <div className="check-list">
-              {(h
-                ? [
-                    "Concrete finishing",
-                    "Slab work support",
-                    "Fast site work",
-                    "Professional equipment",
-                    "Site-based service",
-                  ]
-                : [
-                    "Concrete finishing",
-                    "Slab work support",
-                    "Efficient site work",
-                    "Professional equipment",
-                    "Site-based service",
-                  ]
-              ).map((x) => (
-                <div key={x}>
-                  <Check />
-                  {x}
-                </div>
+              {(isHinglish
+                ? ["Concrete finishing", "RCC / slab work", "Large floor areas", "Site-based machine service", "Date-based availability"]
+                : ["Concrete finishing", "RCC / slab work", "Large floor areas", "Site-based machine service", "Date-based availability"]
+              ).map((item) => (
+                <div key={item}><Check />{item}</div>
               ))}
             </div>
             <div className="info-box">
               <Info size={19} />
               <span>
-                {h
-                  ? "Machine specifications, pricing aur exact service scope business se confirm karein."
-                  : "Machine specifications, pricing and exact service scope should be confirmed with the business before the job."}
+                {isHinglish
+                  ? "Machine ka model, rate, transport aur exact service scope call par confirm karein."
+                  : "Confirm the machine model, rate, transport and exact service scope by phone before the job."}
               </span>
             </div>
           </div>
         </div>
       </section>
+
       <section className="booking-section" id="booking">
         <div className="container">
           <div className="booking-section__heading">
             <SectionTitle
-              eyebrow={h ? "Machine Enquiry" : "Machine enquiry"}
-              title={
-                h
-                  ? "Slab ke liye Linter Machine chahiye?"
-                  : "Need a Linter Machine for Your Slab?"
-              }
+              eyebrow={isHinglish ? "Machine Enquiry" : "Machine enquiry"}
+              title={isHinglish ? "Date Aur Location Bhejiye." : "Send the Date & Location."}
               description={
-                h
-                  ? "Basic details batayein. Hum availability check karke timing aur charges confirm karenge."
-                  : "Tell us the basics. We’ll check availability and contact you to confirm timing and charges."
-              }
+                isHinglish
+                  ? "Naam, phone, site location, date aur approx area fill karein. Availability check karke aapse contact kiya jayega."
+                  : "Add your name, phone, site location, date and approximate area. We’ll check availability and contact you."}
             />
             <Button variant="ghost" onClick={callBusiness}>
-              <PhoneCall size={17} /> {h ? "Call Karein" : "Call instead"}
+              <PhoneCall size={17} /> {isHinglish ? "Seedha Call Karein" : "Call Directly"}
             </Button>
           </div>
           <BookingForm />
