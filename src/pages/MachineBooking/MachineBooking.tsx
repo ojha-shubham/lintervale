@@ -1,8 +1,89 @@
-import { ArrowRight, Check, Info, PhoneCall } from 'lucide-react';
-import SectionTitle from '../../components/SectionTitle/SectionTitle';
-import MachineVisual from '../../components/MachineVisual/MachineVisual';
-import BookingForm from '../../components/BookingForm/BookingForm';
-import Button from '../../components/Button/Button';
-import { callBusiness } from '../../utils/phone';
-import { openMachineWhatsApp } from '../../utils/whatsapp';
-export default function MachineBooking(){return <><section className="page-hero page-hero--machine"><div className="container"><span className="eyebrow">Machine Service</span><h1>Concrete finishing,<br/><em>made easier.</em></h1><p>Share your site details from home. We’ll check availability before confirming the machine service.</p><div className="hero__actions"><Button onClick={()=>document.getElementById('booking')?.scrollIntoView({behavior:'smooth'})}>Request Machine <ArrowRight size={17}/></Button><Button variant="ghost" onClick={openMachineWhatsApp}>Enquire on WhatsApp</Button></div></div></section><section className="machine-explainer section"><div className="container machine-explainer__grid"><MachineVisual compact/><div><SectionTitle eyebrow="What the service covers" title="The right equipment for the right finish." description="The machine service is intended for concrete/slab finishing requirements where site conditions and timing need to be checked in advance."/><div className="check-list">{['Concrete finishing','Slab work support','Efficient site work','Professional equipment','Site-based service'].map(x=><div key={x}><Check/>{x}</div>)}</div><div className="info-box"><Info size={19}/><span>Machine specifications, pricing and exact service scope should be confirmed with the business before the job.</span></div></div></div></section><section className="booking-section" id="booking"><div className="container"><div className="booking-section__heading"><SectionTitle eyebrow="Machine enquiry" title="Need a Linter Machine for Your Slab?" description="Tell us the basics. We’ll check availability and contact you to confirm timing and charges."/><Button variant="ghost" onClick={callBusiness}><PhoneCall size={17}/> Call instead</Button></div><BookingForm/></div></section></>}
+import { ArrowRight, Check, Info, PhoneCall } from "lucide-react";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import MachineVisual from "../../components/MachineVisual/MachineVisual";
+import BookingForm from "../../components/BookingForm/BookingForm";
+import Button from "../../components/Button/Button";
+import { callBusiness } from "../../utils/phone";
+import { openMachineWhatsApp } from "../../utils/whatsapp";
+export default function MachineBooking() {
+  return (
+    <>
+      <section className="page-hero page-hero--machine">
+        <div className="container">
+          <span className="eyebrow">Machine Service</span>
+          <h1>
+            Concrete finishing,
+            <br />
+            <em>made easier.</em>
+          </h1>
+          <p>
+            Share your site details from home. We’ll check availability before
+            confirming the machine service.
+          </p>
+          <div className="hero__actions">
+            <Button
+              onClick={() =>
+                document
+                  .getElementById("booking")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Request Machine <ArrowRight size={17} />
+            </Button>
+            <Button variant="ghost" onClick={openMachineWhatsApp}>
+              Enquire on WhatsApp
+            </Button>
+          </div>
+        </div>
+      </section>
+      <section className="machine-explainer section">
+        <div className="container machine-explainer__grid">
+          <MachineVisual compact />
+          <div>
+            <SectionTitle
+              eyebrow="What the service covers"
+              title="The right equipment for the right finish."
+              description="The machine service is intended for concrete/slab finishing requirements where site conditions and timing need to be checked in advance."
+            />
+            <div className="check-list">
+              {[
+                "Concrete finishing",
+                "Slab work support",
+                "Efficient site work",
+                "Professional equipment",
+                "Site-based service",
+              ].map((x) => (
+                <div key={x}>
+                  <Check />
+                  {x}
+                </div>
+              ))}
+            </div>
+            <div className="info-box">
+              <Info size={19} />
+              <span>
+                Machine specifications, pricing and exact service scope should
+                be confirmed with the business before the job.
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="booking-section" id="booking">
+        <div className="container">
+          <div className="booking-section__heading">
+            <SectionTitle
+              eyebrow="Machine enquiry"
+              title="Need a Linter Machine for Your Slab?"
+              description="Tell us the basics. We’ll check availability and contact you to confirm timing and charges."
+            />
+            <Button variant="ghost" onClick={callBusiness}>
+              <PhoneCall size={17} /> Call instead
+            </Button>
+          </div>
+          <BookingForm />
+        </div>
+      </section>
+    </>
+  );
+}

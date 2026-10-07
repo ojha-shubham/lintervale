@@ -1,4 +1,40 @@
-import { Settings, Zap } from 'lucide-react';
-export default function MachineVisual({ compact = false }: { compact?: boolean }) {
-  return <div className={`machine-visual ${compact ? 'machine-visual--compact' : ''}`} aria-label="Concrete finishing machine illustration" role="img"><div className="machine-visual__grid" /><div className="machine-visual__tag"><Zap size={14} /> CONCRETE FINISHING</div><div className="machine"><div className="machine__handle"><span /><span /></div><div className="machine__motor"><Settings size={26} /></div><div className="machine__body" /><div className="machine__shaft" /><div className="machine__guard"><span /><span /><span /></div><div className="machine__disc" /><div className="machine__wheel machine__wheel--one" /><div className="machine__wheel machine__wheel--two" /></div><div className="machine-visual__floor" /><div className="machine-visual__note">SITE EQUIPMENT • ENQUIRY BASED</div></div>;
+import { Settings, Zap } from "lucide-react";
+export default function MachineVisual({
+  compact = false,
+}: {
+  compact?: boolean;
+}) {
+  return (
+    <div
+      className={`machine-visual ${compact ? "machine-visual--compact" : ""}`}
+      aria-label="Concrete finishing machine illustration"
+      role="img"
+    >
+      <div className="machine-visual__grid" />
+      <div className="machine-visual__tag">
+        <Zap size={14} /> CONCRETE FINISHING
+      </div>
+      <div className="machine">
+        <div className="machine__handle">
+          <span />
+          <span />
+        </div>
+        <div className="machine__motor">
+          <Settings size={26} />
+        </div>
+        <div className="machine__body" />
+        <div className="machine__shaft" />
+        <div className="machine__guard">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="machine__disc" />
+        <div className="machine__wheel machine__wheel--one" />
+        <div className="machine__wheel machine__wheel--two" />
+      </div>
+      <div className="machine-visual__floor" />
+      <div className="machine-visual__note">SITE EQUIPMENT • ENQUIRY BASED</div>
+    </div>
+  );
 }

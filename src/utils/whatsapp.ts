@@ -1,13 +1,15 @@
-import { siteConfig, isConfigured } from '../config/siteConfig';
+import { siteConfig, isConfigured } from "../config/siteConfig";
 
 export function openWhatsApp(message: string) {
   if (!isConfigured(siteConfig.whatsapp)) {
-    window.alert('WhatsApp number is not configured yet. Please update src/config/siteConfig.ts.');
+    window.alert(
+      "WhatsApp number is not configured yet. Please update src/config/siteConfig.ts.",
+    );
     return;
   }
-  const number = siteConfig.whatsapp.replace(/[^0-9]/g, '');
+  const number = siteConfig.whatsapp.replace(/[^0-9]/g, "");
   const url = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
-  window.open(url, '_blank', 'noopener,noreferrer');
+  window.open(url, "_blank", "noopener,noreferrer");
 }
 
 export function openMachineWhatsApp() {

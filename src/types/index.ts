@@ -1,9 +1,9 @@
 export type ConstructionType =
-  | 'House / Residential'
-  | 'Commercial Building'
-  | 'RCC / Slab Work'
-  | 'Road / Civil Work'
-  | 'Other';
+  | "House / Residential"
+  | "Commercial Building"
+  | "RCC / Slab Work"
+  | "Road / Civil Work"
+  | "Other";
 
 export interface MachineBookingRequest {
   name: string;
