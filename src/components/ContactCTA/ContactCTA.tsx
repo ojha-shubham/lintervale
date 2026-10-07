@@ -6,52 +6,38 @@ import { useLanguage } from "../../context/LanguageContext";
 
 export default function ContactCTA() {
   const { language } = useLanguage();
-  const h = language === "hinglish";
+  const isHinglish = language === "hinglish";
+
   return (
     <section className="contact-cta">
       <div>
-        <span className="eyebrow">
-          {h ? "Baat shuru karein" : "Start a conversation"}
-        </span>
+        <span className="eyebrow">{isHinglish ? "Baat Karein" : "Talk to us"}</span>
         <h2>
-          {h ? (
-            <>
-              Koi Project
-              <br />
-              mind mein hai?
-            </>
-          ) : (
-            <>
-              Have a Project
-              <br />
-              in Mind?
-            </>
-          )}
+          {isHinglish ? <>Kaam ki requirement hai?<br /><em>Message karein.</em></> : <>Have a job to discuss?<br /><em>Get in touch.</em></>}
         </h2>
         <p>
-          {h
-            ? "Apne construction project ke baare mein baat karein ya machine availability poochhein."
-            : "Talk to us about your construction project or enquire about machine availability."}
+          {isHinglish
+            ? "Construction ka kaam ho ya linter machine chahiye ho, basic details bhej dein."
+            : "Whether it’s construction work or a linter machine enquiry, send us the basic details."}
         </p>
       </div>
+
       <div className="contact-cta__actions">
-        <Button onClick={callBusiness}>
-          <PhoneCall size={18} /> {h ? "Call Karein" : "Call Now"}
-        </Button>
+        <Button onClick={callBusiness}><PhoneCall size={18} /> {isHinglish ? "Call Karein" : "Call Now"}</Button>
         <Button
           variant="secondary"
           onClick={() =>
             openWhatsApp(
-              h
-                ? "Hello, mujhe construction project ke baare mein enquiry karni hai.\n\nName:\nProject Location:\nRequirement:"
-                : "Hello, I want to enquire about a construction project.\n\nName:\nProject Location:\nRequirement:",
+              isHinglish
+                ? "Namaste, mujhe construction work ke baare mein enquiry karni hai.\n\nNaam:\nLocation:\nKaam:\nDate:"
+                : "Hello, I want to enquire about construction work.\n\nName:\nLocation:\nWork required:\nDate:",
             )
           }
         >
           <ArrowUpRight size={18} /> WhatsApp
         </Button>
         <Button variant="ghost" to="/contact">
-          {h ? "Quote Lejiye" : "Get a Quote"} <ArrowUpRight size={18} />
+          {isHinglish ? "Contact Details" : "Contact Details"} <ArrowUpRight size={18} />
         </Button>
       </div>
     </section>
