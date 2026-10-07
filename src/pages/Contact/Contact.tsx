@@ -87,13 +87,13 @@ export default function Contact() {
                 <strong>
                   {isConfigured(siteConfig.city)
                     ? siteConfig.city
-                    : "YOUR_CITY"}
+                    : "PRATAPGARH,"}
                 </strong>
 
                 <strong className="muted">
                   {isConfigured(siteConfig.serviceArea)
                     ? siteConfig.serviceArea
-                    : "YOUR_SERVICE_AREA"}
+                    : "Pratapgarh, Uttar Pradesh, India"}
                 </strong>
               </span>
             </div>
