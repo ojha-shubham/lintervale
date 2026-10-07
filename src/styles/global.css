@@ -258,6 +258,49 @@ h2 {
 .hero__visual {
   position: relative;
 }
+
+.hero__photo {
+  position: absolute;
+  z-index: 1;
+  inset: -30px -35px 55px 45px;
+  overflow: hidden;
+  border: 8px solid rgba(255,255,255,0.72);
+  box-shadow: 0 25px 60px rgba(22,22,20,0.18);
+  transform: rotate(2deg);
+}
+.hero__photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: saturate(0.78) contrast(1.08);
+}
+.hero__photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(245,184,0,0.08), rgba(20,20,20,0.48));
+}
+.hero__photo-label {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  padding: 8px 10px;
+  background: var(--yellow);
+  color: var(--ink);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+.hero__visual .machine-visual {
+  z-index: 2;
+}
+@media (max-width: 760px) {
+  .hero__photo {
+    inset: -18px 12px 45px 12px;
+    border-width: 5px;
+  }
+}
+
 .hero__stamp {
   position: absolute;
   right: -15px;
