@@ -6,28 +6,28 @@ export interface ConstructionImage {
 
 export const constructionImages: ConstructionImage[] = [
   {
-    src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=85",
-    alt: "Construction site with structural work and building materials",
+    src: "https://images.unsplash.com/photo-1685464196339-46a985b2049b?auto=format&fit=crop&w=1400&q=85",
+    alt: "Construction worker working beside a concrete building",
     label: "Construction Site",
   },
   {
-    src: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1400&q=85",
-    alt: "Workers and equipment at an active construction site",
-    label: "Site Execution",
+    src: "https://images.unsplash.com/photo-1743130940742-c0d1fff97f1c?auto=format&fit=crop&w=1400&q=85",
+    alt: "Construction workers pouring concrete on a building foundation",
+    label: "Concrete Work",
   },
   {
-    src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=85",
-    alt: "Construction workers working on a building project",
+    src: "https://images.unsplash.com/photo-1627591637320-fcfe8c34b62d?auto=format&fit=crop&w=1400&q=85",
+    alt: "Workers standing on a concrete building under construction",
     label: "Building Work",
   },
   {
-    src: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1400&q=85",
-    alt: "Civil construction and infrastructure work",
+    src: "https://images.unsplash.com/photo-1647252397463-4724e68ffbd3?auto=format&fit=crop&w=1400&q=85",
+    alt: "Construction worker at an infrastructure project",
     label: "Civil Work",
   },
   {
-    src: "https://images.unsplash.com/photo-1590644365607-1c5a4c8e4c2c?auto=format&fit=crop&w=1400&q=85",
-    alt: "Concrete construction and finishing work",
-    label: "Concrete Work",
+    src: "https://images.unsplash.com/photo-1685464196339-46a985b2049b?auto=format&fit=crop&w=1400&q=85",
+    alt: "Concrete floor and construction work",
+    label: "Concrete Finishing",
   },
 ];
