@@ -1,14 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import {
-  Building2,
-  Layers3,
-  Route,
-  Drill,
-  Home,
-  Wrench,
-  Landmark,
-  Mountain,
-} from "lucide-react";
+import { Building2, Layers3, Route, Drill, Home, Wrench, Landmark, Mountain } from "lucide-react";
 
 export interface ServiceItem {
   title: string;
@@ -17,76 +8,62 @@ export interface ServiceItem {
   hinglishDescription: string;
   icon: LucideIcon;
 }
+
 export const services: ServiceItem[] = [
   {
     title: "Residential Construction",
     hinglishTitle: "Ghar Ka Construction",
-    description:
-      "House construction and structural work coordinated around practical site requirements.",
-    hinglishDescription:
-      "Ghar ka construction aur structural work, practical site requirements ke hisaab se.",
+    description: "House construction work for residential sites. Discuss the location, stage of work and what needs to be done.",
+    hinglishDescription: "Ghar ke construction ke liye location, kaam ki stage aur requirement share karke baat karein.",
     icon: Home,
   },
   {
     title: "RCC & Slab Work",
     hinglishTitle: "RCC & Slab Work",
-    description:
-      "Concrete, RCC and slab-related work with attention to site execution and finishing.",
-    hinglishDescription:
-      "Concrete, RCC aur slab ka kaam, site execution aur finishing par focus ke saath.",
+    description: "RCC and slab work enquiries, including concrete finishing requirements.",
+    hinglishDescription: "RCC aur slab ke kaam ke saath concrete finishing ki requirement bhi discuss kar sakte hain.",
     icon: Layers3,
   },
   {
     title: "Road & Civil Work",
     hinglishTitle: "Road & Civil Work",
-    description:
-      "Road, paving and civil construction support for local development work.",
-    hinglishDescription:
-      "Road, paving aur local civil construction ke liye practical support.",
+    description: "Road, paving and other local civil work requirements.",
+    hinglishDescription: "Road, paving aur doosre local civil work ke liye requirement share karein.",
     icon: Route,
   },
   {
-    title: "Machine Service",
+    title: "Linter Machine Service",
     hinglishTitle: "Linter Machine Service",
-    description:
-      "Concrete finishing machine availability for slab and floor finishing enquiries.",
-    hinglishDescription:
-      "Slab aur floor finishing ke liye concrete finishing machine availability.",
+    description: "Machine enquiries for concrete slab and floor finishing. Availability is checked for the required date.",
+    hinglishDescription: "Concrete slab aur floor finishing ke liye linter machine ki enquiry. Required date par availability check hogi.",
     icon: Drill,
   },
   {
     title: "Building Construction",
     hinglishTitle: "Building Construction",
-    description:
-      "A foundation for future full-scope building construction services.",
-    hinglishDescription:
-      "Future full-scope building construction services ke liye complete support.",
+    description: "Discuss your building construction requirement, site and current stage of work.",
+    hinglishDescription: "Building construction ke liye site aur kaam ki current stage ke saath requirement batayein.",
     icon: Building2,
   },
   {
-    title: "Renovation",
+    title: "Renovation & Repair",
     hinglishTitle: "Renovation / Repair",
-    description:
-      "Practical support for repair, improvement and renovation requirements.",
-    hinglishDescription:
-      "Repair, improvement aur renovation ke liye practical support.",
+    description: "Repair, improvement and renovation work can be discussed based on the site requirement.",
+    hinglishDescription: "Repair, improvement aur renovation ka kaam site requirement ke hisaab se discuss karein.",
     icon: Wrench,
   },
   {
     title: "Foundation Work",
     hinglishTitle: "Foundation Work",
-    description: "Site-focused foundation and early-stage civil work support.",
-    hinglishDescription:
-      "Foundation aur construction ke starting stage ka site-focused support.",
+    description: "Foundation and early-stage civil work enquiries.",
+    hinglishDescription: "Foundation aur construction ke starting-stage civil work ke liye enquiry karein.",
     icon: Mountain,
   },
   {
     title: "Commercial Construction",
     hinglishTitle: "Commercial Construction",
-    description:
-      "Construction support for commercial spaces and structural requirements.",
-    hinglishDescription:
-      "Commercial spaces aur structural requirements ke liye construction support.",
+    description: "Construction requirements for shops, commercial spaces and other building work.",
+    hinglishDescription: "Shop, commercial space aur doosre building work ke liye requirement share karein.",
     icon: Landmark,
   },
 ];
