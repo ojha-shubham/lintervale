@@ -7,77 +7,62 @@ import { useLanguage } from "../../context/LanguageContext";
 
 export default function Services() {
   const { language } = useLanguage();
-  const isH = language === "hinglish";
+  const isHinglish = language === "hinglish";
+
   return (
     <>
       <section className="page-hero page-hero--short">
         <div className="container">
-          <span className="eyebrow">{isH ? "Services" : "Services"}</span>
+          <span className="eyebrow">Services</span>
           <h1>
-            {isH ? (
-              <>
-                Kaam jo start hota hai
-                <br />
-                <em>site se.</em>
-              </>
+            {isHinglish ? (
+              <>Aapko kya kaam<br /><em>karwana hai?</em></>
             ) : (
-              <>
-                Work that starts
-                <br />
-                <em>with the site.</em>
-              </>
+              <>What work do you<br /><em>need done?</em></>
             )}
           </h1>
           <p>
-            {isH
-              ? "Construction aur civil services ke saath concrete finishing machine ke liye dedicated enquiry."
-              : "Construction and civil capabilities with a dedicated route for concrete finishing machine enquiries."}
+            {isHinglish
+              ? "Ghar, RCC, slab, road aur civil work ke saath linter machine service ke liye bhi enquiry kar sakte hain."
+              : "Enquire about house, RCC, slab, road and civil work, or ask about linter machine service."}
           </p>
         </div>
       </section>
+
       <section className="section section--light">
         <div className="container">
           <div className="service-grid">
-            {services.map((s) => (
+            {services.map((service) => (
               <ServiceCard
-                key={s.title}
+                key={service.title}
                 service={
-                  isH
-                    ? {
-                        ...s,
-                        title: s.hinglishTitle,
-                        description: s.hinglishDescription,
-                      }
-                    : s
+                  isHinglish
+                    ? { ...service, title: service.hinglishTitle, description: service.hinglishDescription }
+                    : service
                 }
               />
             ))}
           </div>
         </div>
       </section>
+
       <section className="service-note">
         <div className="container service-note__inner">
           <div>
-            <span className="eyebrow">
-              {isH ? "Equipment chahiye?" : "Need equipment?"}
-            </span>
-            <h2>
-              {isH
-                ? "Aapki slab ko manpower se zyada bhi chahiye ho sakta hai."
-                : "Your slab may need more than manpower."}
-            </h2>
+            <span className="eyebrow">{isHinglish ? "Linter Machine Chahiye?" : "Need the machine?"}</span>
+            <h2>{isHinglish ? "Date Aur Location Bhejiye." : "Send the Date & Location."}</h2>
             <p>
-              {isH
-                ? "Site details aur date share kijiye. Hum availability check karke aapse contact karenge."
-                : "Share your site details and requested date. We’ll check availability and contact you."}
+              {isHinglish
+                ? "Aapki slab ya concrete work ki date aur location share karein. Availability check karke aapse baat karenge."
+                : "Share the date and location for your slab or concrete work. We’ll check availability and get back to you."}
             </p>
           </div>
           <Button to="/machine">
-            {isH ? "Machine ke baare mein enquiry" : "Enquire About Machine"}{" "}
-            <ArrowRight size={17} />
+            {isHinglish ? "Machine Ke Liye Enquiry" : "Enquire About the Machine"} <ArrowRight size={17} />
           </Button>
         </div>
       </section>
+
       <ContactCTA />
     </>
   );
