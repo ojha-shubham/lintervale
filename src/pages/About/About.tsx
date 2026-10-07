@@ -1,10 +1,4 @@
-import {
-  ArrowRight,
-  HardHat,
-  MessageSquare,
-  Ruler,
-  ShieldCheck,
-} from "lucide-react";
+import { ArrowRight, HardHat, MessageSquare, Ruler, ShieldCheck } from "lucide-react";
 import Button from "../../components/Button/Button";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import FeatureCard from "../../components/FeatureCard/FeatureCard";
@@ -13,36 +7,24 @@ import { useLanguage } from "../../context/LanguageContext";
 
 export default function About() {
   const { language } = useLanguage();
-  const h = language === "hinglish";
+  const isHinglish = language === "hinglish";
 
   return (
     <>
       <section className="page-hero">
         <div className="container">
-          <span className="eyebrow">
-            {h ? "LinterVale ke baare mein" : "About LinterVale"}
-          </span>
-
+          <span className="eyebrow">{isHinglish ? "LinterVale ke baare mein" : "About LinterVale"}</span>
           <h1>
-            {h ? (
-              <>
-                Construction jo ho
-                <br />
-                <em>simple aur clear.</em>
-              </>
+            {isHinglish ? (
+              <>Kaam ki baat.<br /><em>Seedha kaam.</em></>
             ) : (
-              <>
-                Practical construction.
-                <br />
-                <em>Clear communication.</em>
-              </>
+              <>Construction work.<br /><em>Kept straightforward.</em></>
             )}
           </h1>
-
           <p>
-            {h
-              ? "Construction, civil work aur equipment support ko real site needs ke around simple aur practical rakha gaya hai."
-              : "Construction, civil work and equipment support presented around the practical needs of a working site."}
+            {isHinglish
+              ? "LinterVale ka focus construction, RCC, slab, civil work aur linter machine service ki enquiry ko simple rakhna hai."
+              : "LinterVale focuses on construction, RCC, slab, civil work and linter machine enquiries without making the process complicated."}
           </p>
         </div>
       </section>
@@ -51,42 +33,30 @@ export default function About() {
         <div className="container split-section">
           <div>
             <SectionTitle
-              eyebrow={h ? "Hamari approach" : "Our approach"}
-              title={
-                h
-                  ? "Site ki baat simple banayein."
-                  : "Make the site conversation simple."
-              }
+              eyebrow={isHinglish ? "Kaise kaam karte hain" : "How it works"}
+              title={isHinglish ? "Pehle kaam samjhenge." : "We start by understanding the job."}
               description={
-                h
-                  ? "LinterVale construction work, concrete/RCC requirements aur dedicated machine enquiry flow ke around structured hai. Goal simple hai — customer bina confusion ke apni requirement bata sake."
-                  : "LinterVale is structured around construction work, concrete/RCC requirements and a dedicated machine enquiry flow. The goal is to make it easy for a customer to explain what is needed before work is scheduled."
-              }
+                isHinglish
+                  ? "Aap location, date, area aur kaam ki requirement batayein. Uske baad availability, timing aur charges par baat hoti hai."
+                  : "You share the location, date, area and work requirement. We then discuss availability, timing and charges before confirming the job."}
             />
-
             <Button to="/contact">
-              {h ? "Enquiry Start Karein" : "Start an Enquiry"}
-              <ArrowRight size={17} />
+              {isHinglish ? "Apne Kaam Ke Baare Mein Baat Karein" : "Talk About Your Work"} <ArrowRight size={17} />
             </Button>
           </div>
 
           <div className="about-panel">
             <div className="about-panel__line" />
-
-            <span className="about-panel__label">
-              {h ? "KAAM KA FLOW" : "WORKFLOW"}
-            </span>
-
+            <span className="about-panel__label">{isHinglish ? "KAAM KA FLOW" : "WORK FLOW"}</span>
             <h3>
-              {h
-                ? "Site requirement → availability → confirmation → kaam"
-                : "Site requirement → availability → confirmation → execution"}
+              {isHinglish
+                ? "Requirement → Date → Rate → Confirmation"
+                : "Requirement → Date → Rate → Confirmation"}
             </h3>
-
             <p>
-              {h
-                ? "Owner information, service area, project history aur credentials real details milne par yahan add kiye ja sakte hain."
-                : "Owner information, service area, project history and credentials can be added here when provided."}
+              {isHinglish
+                ? "Final booking ya service tabhi confirm hogi jab availability aur charges aapse clear ho jaayen."
+                : "The service is confirmed only after availability and charges have been discussed with you."}
             </p>
           </div>
         </div>
@@ -95,53 +65,30 @@ export default function About() {
       <section className="section">
         <div className="container">
           <SectionTitle
-            eyebrow={h ? "Kya important hai" : "What matters"}
-            title={
-              h
-                ? "Real projects ke liye service model."
-                : "A service model made for real projects."
-            }
+            eyebrow={isHinglish ? "Jo cheezein important hain" : "What matters"}
+            title={isHinglish ? "Customer Ko Kya Pata Hona Chahiye?" : "What should be clear before the work starts?"}
           />
 
           <div className="feature-grid">
             <FeatureCard
               icon={HardHat}
-              title={h ? "Construction Expertise" : "Construction Expertise"}
-              text={
-                h
-                  ? "House, RCC, slab, road aur civil requirements ke liye focused support."
-                  : "A focused approach for house, RCC, slab, road and civil requirements."
-              }
+              title={isHinglish ? "Kaam Ka Type" : "Type of Work"}
+              text={isHinglish ? "House, RCC, slab, road ya civil work — requirement pehle clear hoti hai." : "House, RCC, slab, road or civil work — the requirement is clear first."}
             />
-
             <FeatureCard
               icon={Ruler}
-              title={h ? "Site Requirements" : "Site Requirements"}
-              text={
-                h
-                  ? "Location, date, area aur practical information pehle collect ki ja sakti hai."
-                  : "Collect location, date, area and other practical information early."
-              }
+              title={isHinglish ? "Location & Area" : "Location & Area"}
+              text={isHinglish ? "Site location aur approx area se requirement samajhne mein help milti hai." : "The site location and approximate area help us understand the requirement."}
             />
-
             <FeatureCard
               icon={MessageSquare}
-              title={h ? "Direct Communication" : "Direct Communication"}
-              text={
-                h
-                  ? "Customer call, WhatsApp ya enquiry ke through directly connect kar sakta hai."
-                  : "Customers can call, WhatsApp or submit an enquiry directly."
-              }
+              title={isHinglish ? "Call / WhatsApp" : "Call / WhatsApp"}
+              text={isHinglish ? "Question ho ya machine chahiye ho, seedhe contact kar sakte hain." : "For questions or a machine enquiry, you can contact the business directly."}
             />
-
             <FeatureCard
               icon={ShieldCheck}
-              title={h ? "Clear Information" : "Clear Information"}
-              text={
-                h
-                  ? "Availability, pricing, experience aur credentials real information ke hisaab se configure kiye ja sakte hain."
-                  : "Availability, pricing, experience and credentials remain configurable using real business information."
-              }
+              title={isHinglish ? "Pehle Confirmation" : "Confirmation First"}
+              text={isHinglish ? "Availability aur charges clear hone ke baad hi final confirmation hota hai." : "Final confirmation happens after availability and charges are clear."}
             />
           </div>
         </div>
