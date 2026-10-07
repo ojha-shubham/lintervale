@@ -71,6 +71,14 @@ export default function Home() {
             </div>
           </div>
           <div className="hero__visual">
+            <div className="hero__photo">
+              <img
+                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=85"
+                alt="Construction site with concrete and structural work"
+              />
+              <div className="hero__photo-overlay" />
+              <span className="hero__photo-label">ON SITE / CONSTRUCTION</span>
+            </div>
             <MachineVisual />
             <div className="hero__stamp">
               <HardHat size={18} />
