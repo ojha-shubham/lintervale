@@ -1,6 +1,5 @@
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { useState } from "react";
-
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import ContactCTA from "../../components/ContactCTA/ContactCTA";
 import { projects } from "../../data/projects";
@@ -8,131 +7,81 @@ import { useLanguage } from "../../context/LanguageContext";
 
 export default function Projects() {
   const { language } = useLanguage();
-  const h = language === "hinglish";
-
-  const filters = [
-    "All",
-    "Residential",
-    "RCC / Slab",
-    "Commercial",
-    "Road / Civil",
-  ] as const;
-
+  const isHinglish = language === "hinglish";
+  const filters = ["All", "Residential", "RCC / Slab", "Commercial", "Road / Civil"] as const;
   const [filter, setFilter] = useState<(typeof filters)[number]>("All");
-
-  const visible =
-    filter === "All"
-      ? projects
-      : projects.filter((project) => project.category === filter);
-
-  const filterLabels = h
-    ? ["All", "Residential", "RCC / Slab", "Commercial", "Road / Civil"]
-    : filters;
+  const visible = filter === "All" ? projects : projects.filter((project) => project.category === filter);
 
   return (
     <>
-      {/* Hero */}
       <section className="page-hero page-hero--short">
         <div className="container">
-          <span className="eyebrow">{h ? "Projects" : "Projects"}</span>
-
+          <span className="eyebrow">{isHinglish ? "Kaam ke examples" : "Work examples"}</span>
           <h1>
-            {h ? (
-              <>
-                Kaam dikhaiye.
-                <br />
-                <em>Real rakhiye.</em>
-              </>
+            {isHinglish ? (
+              <>Kaam kis type ka hai?<br /><em>Yahan dekhein.</em></>
             ) : (
-              <>
-                Show the work.
-                <br />
-                <em>Keep it real.</em>
-              </>
+              <>Work we can<br /><em>talk about.</em></>
             )}
           </h1>
-
           <p>
-            {h
-              ? "Real site photographs, locations aur project details ke liye clean project gallery."
-              : "A clean project gallery ready for real site photographs, locations and project details."}
+            {isHinglish
+              ? "Abhi gallery mein work-category photos hain. Real site photos milne par yahin actual projects dikhaye ja sakte hain."
+              : "The gallery currently shows work-category images. It can be replaced with actual site photographs as real projects are added."}
           </p>
         </div>
       </section>
 
-      {/* Projects */}
       <section className="section section--light">
         <div className="container">
           <SectionTitle
-            eyebrow={h ? "Project Gallery" : "Project gallery"}
-            title={h ? "Selected Work" : "Selected work"}
+            eyebrow={isHinglish ? "Work categories" : "Work categories"}
+            title={isHinglish ? "Kaun Sa Kaam?" : "What Kind of Work?"}
             description={
-              h
-                ? "Abhi ye illustrative construction images hain. Business ke real project photos aur details milne par inhe replace kiya ja sakta hai."
-                : "These are illustrative construction images for the first version. Replace them with the business's real project photographs and details as they become available."
-            }
+              isHinglish
+                ? "Ye page abhi real project claims nahi karta. Ismein sirf un kaamon ke examples hain jin par enquiry ki ja sakti hai."
+                : "This page does not present stock images as completed client projects. It simply shows the types of work you can enquire about."}
           />
 
-          {/* Filters */}
-          <div className="filters" role="group" aria-label="Project categories">
-            {filters.map((filterName, index) => (
+          <div className="filters" role="group" aria-label="Work categories">
+            {filters.map((filterName) => (
               <button
                 type="button"
                 className={filter === filterName ? "is-active" : ""}
                 key={filterName}
                 onClick={() => setFilter(filterName)}
               >
-                {filterLabels[index]}
+                {isHinglish
+                  ? ({ All: "Sab", Residential: "Ghar", "RCC / Slab": "RCC / Slab", Commercial: "Commercial", "Road / Civil": "Road / Civil" }[filterName])
+                  : filterName}
               </button>
             ))}
           </div>
 
-          {/* Project Grid */}
           <div className="project-grid">
             {visible.map((project) => (
               <article className="project-card" key={project.title}>
-                {/* Image */}
                 <div className="project-card__image">
-                  <img
-                    src={project.imageUrl}
-                    alt={project.imageLabel}
-                    loading="lazy"
-                  />
-
-                  <span className="project-card__category">
-                    {project.category}
-                  </span>
+                  <img src={project.imageUrl} alt={project.imageLabel} loading="lazy" />
+                  <span className="project-card__category">{project.category}</span>
                 </div>
-
-                {/* Content */}
                 <div className="project-card__body">
                   <div>
                     <span className="project-card__location">
                       <MapPin size={14} />
-                      {project.location}
+                      {isHinglish ? "Example / Work Type" : "Work Type"}
                     </span>
-
                     <h3>
-                      {h
-                        ? {
-                            "Residential Construction":
-                              "Residential Construction",
-                            "Concrete Slab Work": "Concrete Slab Work",
-                            "Commercial Construction":
-                              "Commercial Construction",
-                            "Road & Civil Work": "Road & Civil Work",
-                            "Concrete Finishing": "Concrete Finishing",
-                          }[project.title] || project.title
+                      {isHinglish
+                        ? ({ "Residential Construction": "Ghar Ka Construction", "Concrete Slab Work": "RCC / Slab Work", "Commercial Construction": "Commercial Building", "Road & Civil Work": "Road / Civil Work", "Concrete Finishing": "Concrete Finishing" }[project.title] || project.title)
                         : project.title}
                     </h3>
-
                     <p>
-                      {h
-                        ? "Illustrative image. Real project photograph aur details baad mein add ki ja sakti hain."
-                        : project.description}
+                      {isHinglish
+                        ? "Ye image sirf work type dikhane ke liye hai. Real project photo aur location baad mein add ki ja sakti hai."
+                        : "This image is for the work type only. Real project photographs and locations can be added here later."}
                     </p>
                   </div>
-
                   <ArrowUpRight size={20} />
                 </div>
               </article>
