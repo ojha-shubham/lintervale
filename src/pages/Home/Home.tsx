@@ -181,7 +181,7 @@ export default function Home() {
                 ["01", "Machine Enquiry", "Date aur location share karein"],
                 ["02", "RCC / Slab Work", "Concrete aur slab ka kaam"],
                 ["03", "Civil Work", "Road aur local civil work"],
-                ["04", "Seedhi Baat", "Call ya WhatsApp par baat"],
+                ["04", "Seedhi Baat Karen", "Call ya WhatsApp par baat"],
               ]
             : [
                 ["01", "Machine Enquiry", "Share your date and location"],
@@ -357,7 +357,7 @@ export default function Home() {
       <section className="section section--dark">
         <div className="container">
           <SectionTitle
-            eyebrow={isHinglish ? "Seedhi baat" : "What you can expect"}
+            eyebrow={isHinglish ? "Seedhi baat Karen" : "What you can expect"}
             title={
               isHinglish
                 ? "Pehle Details. Phir Confirmation."

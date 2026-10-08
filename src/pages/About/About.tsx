@@ -27,7 +27,7 @@ export default function About() {
               <>
                 Kaam ki baat.
                 <br />
-                <em>Seedha kaam.</em>
+                <em>BAATEN KAM KAAM JADA.</em>
               </>
             ) : (
               <>
