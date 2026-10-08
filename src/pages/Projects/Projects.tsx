@@ -8,20 +8,39 @@ import { useLanguage } from "../../context/LanguageContext";
 export default function Projects() {
   const { language } = useLanguage();
   const isHinglish = language === "hinglish";
-  const filters = ["All", "Residential", "RCC / Slab", "Commercial", "Road / Civil"] as const;
+  const filters = [
+    "All",
+    "Residential",
+    "RCC / Slab",
+    "Commercial",
+    "Road / Civil",
+  ] as const;
   const [filter, setFilter] = useState<(typeof filters)[number]>("All");
-  const visible = filter === "All" ? projects : projects.filter((project) => project.category === filter);
+  const visible =
+    filter === "All"
+      ? projects
+      : projects.filter((project) => project.category === filter);
 
   return (
     <>
       <section className="page-hero page-hero--short">
         <div className="container">
-          <span className="eyebrow">{isHinglish ? "Kaam ke examples" : "Work examples"}</span>
+          <span className="eyebrow">
+            {isHinglish ? "Kaam ke examples" : "Work examples"}
+          </span>
           <h1>
             {isHinglish ? (
-              <>Kaam kis type ka hai?<br /><em>Yahan dekhein.</em></>
+              <>
+                Kaam kis type ka hai?
+                <br />
+                <em>Yahan dekhein.</em>
+              </>
             ) : (
-              <>Work we can<br /><em>talk about.</em></>
+              <>
+                Work we can
+                <br />
+                <em>talk about.</em>
+              </>
             )}
           </h1>
           <p>
@@ -40,7 +59,8 @@ export default function Projects() {
             description={
               isHinglish
                 ? "Ye page abhi real project claims nahi karta. Ismein sirf un kaamon ke examples hain jin par enquiry ki ja sakti hai."
-                : "This page does not present stock images as completed client projects. It simply shows the types of work you can enquire about."}
+                : "This page does not present stock images as completed client projects. It simply shows the types of work you can enquire about."
+            }
           />
 
           <div className="filters" role="group" aria-label="Work categories">
@@ -52,7 +72,13 @@ export default function Projects() {
                 onClick={() => setFilter(filterName)}
               >
                 {isHinglish
-                  ? ({ All: "Sab", Residential: "Ghar", "RCC / Slab": "RCC / Slab", Commercial: "Commercial", "Road / Civil": "Road / Civil" }[filterName])
+                  ? {
+                      All: "Sab",
+                      Residential: "Ghar",
+                      "RCC / Slab": "RCC / Slab",
+                      Commercial: "Commercial",
+                      "Road / Civil": "Road / Civil",
+                    }[filterName]
                   : filterName}
               </button>
             ))}
@@ -62,8 +88,14 @@ export default function Projects() {
             {visible.map((project) => (
               <article className="project-card" key={project.title}>
                 <div className="project-card__image">
-                  <img src={project.imageUrl} alt={project.imageLabel} loading="lazy" />
-                  <span className="project-card__category">{project.category}</span>
+                  <img
+                    src={project.imageUrl}
+                    alt={project.imageLabel}
+                    loading="lazy"
+                  />
+                  <span className="project-card__category">
+                    {project.category}
+                  </span>
                 </div>
                 <div className="project-card__body">
                   <div>
@@ -73,7 +105,13 @@ export default function Projects() {
                     </span>
                     <h3>
                       {isHinglish
-                        ? ({ "Residential Construction": "Ghar Ka Construction", "Concrete Slab Work": "RCC / Slab Work", "Commercial Construction": "Commercial Building", "Road & Civil Work": "Road / Civil Work", "Concrete Finishing": "Concrete Finishing" }[project.title] || project.title)
+                        ? {
+                            "Residential Construction": "Ghar Ka Construction",
+                            "Concrete Slab Work": "RCC / Slab Work",
+                            "Commercial Construction": "Commercial Building",
+                            "Road & Civil Work": "Road / Civil Work",
+                            "Concrete Finishing": "Concrete Finishing",
+                          }[project.title] || project.title
                         : project.title}
                     </h3>
                     <p>

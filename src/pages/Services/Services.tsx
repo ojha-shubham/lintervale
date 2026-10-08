@@ -16,9 +16,17 @@ export default function Services() {
           <span className="eyebrow">Services</span>
           <h1>
             {isHinglish ? (
-              <>Aapko kya kaam<br /><em>karwana hai?</em></>
+              <>
+                Aapko kya kaam
+                <br />
+                <em>karwana hai?</em>
+              </>
             ) : (
-              <>What work do you<br /><em>need done?</em></>
+              <>
+                What work do you
+                <br />
+                <em>need done?</em>
+              </>
             )}
           </h1>
           <p>
@@ -37,7 +45,11 @@ export default function Services() {
                 key={service.title}
                 service={
                   isHinglish
-                    ? { ...service, title: service.hinglishTitle, description: service.hinglishDescription }
+                    ? {
+                        ...service,
+                        title: service.hinglishTitle,
+                        description: service.hinglishDescription,
+                      }
                     : service
                 }
               />
@@ -49,8 +61,14 @@ export default function Services() {
       <section className="service-note">
         <div className="container service-note__inner">
           <div>
-            <span className="eyebrow">{isHinglish ? "Linter Machine Chahiye?" : "Need the machine?"}</span>
-            <h2>{isHinglish ? "Date Aur Location Bhejiye." : "Send the Date & Location."}</h2>
+            <span className="eyebrow">
+              {isHinglish ? "Linter Machine Chahiye?" : "Need the machine?"}
+            </span>
+            <h2>
+              {isHinglish
+                ? "Date Aur Location Bhejiye."
+                : "Send the Date & Location."}
+            </h2>
             <p>
               {isHinglish
                 ? "Aapki slab ya concrete work ki date aur location share karein. Availability check karke aapse baat karenge."
@@ -58,7 +76,10 @@ export default function Services() {
             </p>
           </div>
           <Button to="/machine">
-            {isHinglish ? "Machine Ke Liye Enquiry" : "Enquire About the Machine"} <ArrowRight size={17} />
+            {isHinglish
+              ? "Machine Ke Liye Enquiry"
+              : "Enquire About the Machine"}{" "}
+            <ArrowRight size={17} />
           </Button>
         </div>
       </section>

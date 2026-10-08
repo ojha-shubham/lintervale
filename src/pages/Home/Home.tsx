@@ -23,16 +23,48 @@ export default function Home() {
 
   const steps = isHinglish
     ? [
-        ["01", "Details Bhejiye", "Site kahan hai, kab kaam hai aur kya chahiye — bas itna batayein."],
-        ["02", "Date Check Hogi", "Requested date aur site ke hisaab se machine availability dekhenge."],
-        ["03", "Rate & Time Confirm", "Availability ke baad call karke timing aur charges confirm karenge."],
-        ["04", "Site Par Kaam", "Fix plan ke hisaab se machine/service site par coordinate hogi."],
+        [
+          "01",
+          "Details Bhejiye",
+          "Site kahan hai, kab kaam hai aur kya chahiye — bas itna batayein.",
+        ],
+        [
+          "02",
+          "Date Check Hogi",
+          "Requested date aur site ke hisaab se machine availability dekhenge.",
+        ],
+        [
+          "03",
+          "Rate & Time Confirm",
+          "Availability ke baad call karke timing aur charges confirm karenge.",
+        ],
+        [
+          "04",
+          "Site Par Kaam",
+          "Fix plan ke hisaab se machine/service site par coordinate hogi.",
+        ],
       ]
     : [
-        ["01", "Share the Details", "Tell us where the site is, when you need the service and what work is required."],
-        ["02", "We Check the Date", "We check machine availability for your requested date and site."],
-        ["03", "Confirm Rate & Time", "Once availability is checked, we confirm the timing and charges with you."],
-        ["04", "Service at the Site", "The machine/service is coordinated for the agreed date and time."],
+        [
+          "01",
+          "Share the Details",
+          "Tell us where the site is, when you need the service and what work is required.",
+        ],
+        [
+          "02",
+          "We Check the Date",
+          "We check machine availability for your requested date and site.",
+        ],
+        [
+          "03",
+          "Confirm Rate & Time",
+          "Once availability is checked, we confirm the timing and charges with you.",
+        ],
+        [
+          "04",
+          "Service at the Site",
+          "The machine/service is coordinated for the agreed date and time.",
+        ],
       ];
 
   const serviceData = isHinglish
@@ -78,29 +110,40 @@ export default function Home() {
 
             <div className="hero__actions">
               <Button to="/machine">
-                {isHinglish ? "Linter Machine Ke Liye Enquiry" : "Enquire About Linter Machine"}{" "}
+                {isHinglish
+                  ? "Linter Machine Ke Liye Enquiry"
+                  : "Enquire About Linter Machine"}{" "}
                 <ArrowRight size={18} />
               </Button>
               <Button variant="ghost" to="/contact">
-                {isHinglish ? "Construction Kaam Ke Liye Baat Karein" : "Talk About Construction Work"}
+                {isHinglish
+                  ? "Construction Kaam Ke Liye Baat Karein"
+                  : "Talk About Construction Work"}
               </Button>
             </div>
 
             <div className="hero__meta">
               <span>
                 <CircleDot size={15} />
-                {isHinglish ? "Site aur date pehle check" : "Site and date checked first"}
+                {isHinglish
+                  ? "Site aur date pehle check"
+                  : "Site and date checked first"}
               </span>
               <span>
                 <ShieldCheck size={15} />
-                {isHinglish ? "Final confirmation baat karke" : "Final confirmation by phone"}
+                {isHinglish
+                  ? "Final confirmation baat karke"
+                  : "Final confirmation by phone"}
               </span>
             </div>
           </div>
 
           <div className="hero__visual">
             <div className="hero__photo">
-              <img src={constructionImages[0].src} alt={constructionImages[0].alt} />
+              <img
+                src={constructionImages[0].src}
+                alt={constructionImages[0].alt}
+              />
               <div className="hero__photo-overlay" />
               <span className="hero__photo-label">
                 {isHinglish ? "SITE PAR KAAM" : "WORK ON SITE"}
@@ -111,9 +154,15 @@ export default function Home() {
               <HardHat size={18} />
               <span>
                 {isHinglish ? (
-                  <>Construction<br />& Machine Service</>
+                  <>
+                    Construction
+                    <br />& Machine Service
+                  </>
                 ) : (
-                  <>Construction<br />& Machine Service</>
+                  <>
+                    Construction
+                    <br />& Machine Service
+                  </>
                 )}
               </span>
             </div>
@@ -156,7 +205,11 @@ export default function Home() {
         <div className="container">
           <SectionTitle
             eyebrow={isHinglish ? "Services" : "Services"}
-            title={isHinglish ? "Aapko Kaun Sa Kaam Karwana Hai?" : "What Work Do You Need?"}
+            title={
+              isHinglish
+                ? "Aapko Kaun Sa Kaam Karwana Hai?"
+                : "What Work Do You Need?"
+            }
             description={
               isHinglish
                 ? "Ghar se lekar RCC, slab, road aur civil work tak — apni requirement seedhe batayein."
@@ -172,7 +225,8 @@ export default function Home() {
 
           <div className="section-link">
             <Button variant="ghost" to="/services">
-              {isHinglish ? "Saari Services Dekhein" : "See All Services"} <ArrowRight size={17} />
+              {isHinglish ? "Saari Services Dekhein" : "See All Services"}{" "}
+              <ArrowRight size={17} />
             </Button>
           </div>
         </div>
@@ -182,7 +236,11 @@ export default function Home() {
         <div className="container">
           <SectionTitle
             eyebrow={isHinglish ? "Kaam ke examples" : "Work examples"}
-            title={isHinglish ? "Construction, RCC Aur Civil Work." : "Construction, RCC & Civil Work."}
+            title={
+              isHinglish
+                ? "Construction, RCC Aur Civil Work."
+                : "Construction, RCC & Civil Work."
+            }
             description={
               isHinglish
                 ? "Yahan abhi category photos hain. Actual site photos milne par isi jagah real kaam dikhaya ja sakta hai."
@@ -213,14 +271,20 @@ export default function Home() {
                 alt="Concrete work on an active construction site"
                 loading="lazy"
               />
-              <span>{isHinglish ? "RCC / SLAB WORK" : "CONCRETE / SLAB WORK"}</span>
+              <span>
+                {isHinglish ? "RCC / SLAB WORK" : "CONCRETE / SLAB WORK"}
+              </span>
             </div>
           </div>
 
           <div>
-            <span className="eyebrow">{isHinglish ? "Linter Machine" : "Linter Machine"}</span>
+            <span className="eyebrow">
+              {isHinglish ? "Linter Machine" : "Linter Machine"}
+            </span>
             <h2>
-              {isHinglish ? "Slab Ke Liye Linter Machine Chahiye?" : "Need a Linter Machine for Your Slab?"}
+              {isHinglish
+                ? "Slab Ke Liye Linter Machine Chahiye?"
+                : "Need a Linter Machine for Your Slab?"}
             </h2>
             <p className="lead">
               {isHinglish
@@ -232,22 +296,36 @@ export default function Home() {
               <FeatureCard
                 icon={Wrench}
                 title={isHinglish ? "Concrete Finishing" : "Concrete Finishing"}
-                text={isHinglish ? "Slab aur concrete finishing ke liye machine support." : "Machine support for slab and concrete finishing work."}
+                text={
+                  isHinglish
+                    ? "Slab aur concrete finishing ke liye machine support."
+                    : "Machine support for slab and concrete finishing work."
+                }
               />
               <FeatureCard
                 icon={HardHat}
                 title={isHinglish ? "Site Ke Hisaab Se" : "Based on the Site"}
-                text={isHinglish ? "Location, area aur date dekhkar requirement samjhenge." : "We look at the location, area and date before confirming the service."}
+                text={
+                  isHinglish
+                    ? "Location, area aur date dekhkar requirement samjhenge."
+                    : "We look at the location, area and date before confirming the service."
+                }
               />
               <FeatureCard
                 icon={Truck}
                 title={isHinglish ? "Timing Confirm" : "Timing Confirmed"}
-                text={isHinglish ? "Service se pehle timing aur charges clear karenge." : "Timing and charges are confirmed before the service."}
+                text={
+                  isHinglish
+                    ? "Service se pehle timing aur charges clear karenge."
+                    : "Timing and charges are confirmed before the service."
+                }
               />
             </div>
 
             <Button to="/machine">
-              {isHinglish ? "Machine Ke Liye Enquiry Karein" : "Enquire About the Machine"}{" "}
+              {isHinglish
+                ? "Machine Ke Liye Enquiry Karein"
+                : "Enquire About the Machine"}{" "}
               <ArrowRight size={17} />
             </Button>
           </div>
@@ -280,7 +358,11 @@ export default function Home() {
         <div className="container">
           <SectionTitle
             eyebrow={isHinglish ? "Seedhi baat" : "What you can expect"}
-            title={isHinglish ? "Pehle Details. Phir Confirmation." : "Details First. Confirmation Next."}
+            title={
+              isHinglish
+                ? "Pehle Details. Phir Confirmation."
+                : "Details First. Confirmation Next."
+            }
             description={
               isHinglish
                 ? "Aap location, date aur kaam ki basic details batayein. Availability aur charges clear hone ke baad hi final confirmation hoga."
@@ -291,14 +373,32 @@ export default function Home() {
           <div className="capability-grid">
             {(isHinglish
               ? [
-                  ["Ghar / RCC / Slab", "Apne kaam ka type aur approx area batayein."],
-                  ["Linter Machine", "Date aur site location ke saath machine enquiry karein."],
-                  ["Road / Civil Work", "Kaam ki jagah aur requirement share karein."],
+                  [
+                    "Ghar / RCC / Slab",
+                    "Apne kaam ka type aur approx area batayein.",
+                  ],
+                  [
+                    "Linter Machine",
+                    "Date aur site location ke saath machine enquiry karein.",
+                  ],
+                  [
+                    "Road / Civil Work",
+                    "Kaam ki jagah aur requirement share karein.",
+                  ],
                 ]
               : [
-                  ["House / RCC / Slab", "Tell us the type of work and approximate area."],
-                  ["Linter Machine", "Enquire with the required date and site location."],
-                  ["Road / Civil Work", "Share the work location and what needs to be done."],
+                  [
+                    "House / RCC / Slab",
+                    "Tell us the type of work and approximate area.",
+                  ],
+                  [
+                    "Linter Machine",
+                    "Enquire with the required date and site location.",
+                  ],
+                  [
+                    "Road / Civil Work",
+                    "Share the work location and what needs to be done.",
+                  ],
                 ]
             ).map((item) => (
               <div key={item[0]}>

@@ -15,9 +15,23 @@ export default function Contact() {
     <>
       <section className="page-hero page-hero--short">
         <div className="container">
-          <span className="eyebrow">{isHinglish ? "Baat Karein" : "Contact"}</span>
+          <span className="eyebrow">
+            {isHinglish ? "Baat Karein" : "Contact"}
+          </span>
           <h1>
-            {isHinglish ? <>Kaam hai?<br /><em>Call karein.</em></> : <>Have work to discuss?<br /><em>Let's talk.</em></>}
+            {isHinglish ? (
+              <>
+                Kaam hai?
+                <br />
+                <em>Call karein.</em>
+              </>
+            ) : (
+              <>
+                Have work to discuss?
+                <br />
+                <em>Let's talk.</em>
+              </>
+            )}
           </h1>
           <p>
             {isHinglish
@@ -32,15 +46,25 @@ export default function Contact() {
           <div>
             <SectionTitle
               eyebrow={isHinglish ? "Direct Contact" : "Direct contact"}
-              title={isHinglish ? "Apne kaam ki details batayein." : "Tell us about the job."}
+              title={
+                isHinglish
+                  ? "Apne kaam ki details batayein."
+                  : "Tell us about the job."
+              }
               description={
                 isHinglish
                   ? "Call ya WhatsApp par location, date aur kaam ki basic details share kar sakte hain."
-                  : "Call or WhatsApp with the location, date and a few basic details about the work."}
+                  : "Call or WhatsApp with the location, date and a few basic details about the work."
+              }
             />
             <div className="contact-actions">
-              <Button onClick={callBusiness}><PhoneCall size={18} /> {isHinglish ? "Call Karein" : "Call Now"}</Button>
-              <Button variant="secondary" onClick={openMachineWhatsApp}>WhatsApp</Button>
+              <Button onClick={callBusiness}>
+                <PhoneCall size={18} />{" "}
+                {isHinglish ? "Call Karein" : "Call Now"}
+              </Button>
+              <Button variant="secondary" onClick={openMachineWhatsApp}>
+                WhatsApp
+              </Button>
             </div>
           </div>
 
@@ -74,15 +98,23 @@ export default function Contact() {
       <section className="quote-section">
         <div className="container quote-section__inner">
           <div>
-            <span className="eyebrow">{isHinglish ? "Construction Enquiry" : "Construction enquiry"}</span>
-            <h2>{isHinglish ? "Kaam kahan hai aur kab chahiye?" : "Where is the work and when do you need it?"}</h2>
+            <span className="eyebrow">
+              {isHinglish ? "Construction Enquiry" : "Construction enquiry"}
+            </span>
+            <h2>
+              {isHinglish
+                ? "Kaam kahan hai aur kab chahiye?"
+                : "Where is the work and when do you need it?"}
+            </h2>
             <p>
               {isHinglish
                 ? "Project type, location, date aur short requirement WhatsApp ya call par bhej dein."
                 : "Send the project type, location, date and a short description by WhatsApp or phone."}
             </p>
           </div>
-          <Button onClick={openMachineWhatsApp}>{isHinglish ? "WhatsApp Par Enquiry" : "Enquire on WhatsApp"}</Button>
+          <Button onClick={openMachineWhatsApp}>
+            {isHinglish ? "WhatsApp Par Enquiry" : "Enquire on WhatsApp"}
+          </Button>
         </div>
       </section>
 

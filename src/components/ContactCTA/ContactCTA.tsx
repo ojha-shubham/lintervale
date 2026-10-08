@@ -11,9 +11,23 @@ export default function ContactCTA() {
   return (
     <section className="contact-cta">
       <div>
-        <span className="eyebrow">{isHinglish ? "Baat Karein" : "Talk to us"}</span>
+        <span className="eyebrow">
+          {isHinglish ? "Baat Karein" : "Talk to us"}
+        </span>
         <h2>
-          {isHinglish ? <>Kaam ki requirement hai?<br /><em>Message karein.</em></> : <>Have a job to discuss?<br /><em>Get in touch.</em></>}
+          {isHinglish ? (
+            <>
+              Kaam ki requirement hai?
+              <br />
+              <em>Message karein.</em>
+            </>
+          ) : (
+            <>
+              Have a job to discuss?
+              <br />
+              <em>Get in touch.</em>
+            </>
+          )}
         </h2>
         <p>
           {isHinglish
@@ -23,7 +37,9 @@ export default function ContactCTA() {
       </div>
 
       <div className="contact-cta__actions">
-        <Button onClick={callBusiness}><PhoneCall size={18} /> {isHinglish ? "Call Karein" : "Call Now"}</Button>
+        <Button onClick={callBusiness}>
+          <PhoneCall size={18} /> {isHinglish ? "Call Karein" : "Call Now"}
+        </Button>
         <Button
           variant="secondary"
           onClick={() =>
@@ -37,7 +53,8 @@ export default function ContactCTA() {
           <ArrowUpRight size={18} /> WhatsApp
         </Button>
         <Button variant="ghost" to="/contact">
-          {isHinglish ? "Contact Details" : "Contact Details"} <ArrowUpRight size={18} />
+          {isHinglish ? "Contact Details" : "Contact Details"}{" "}
+          <ArrowUpRight size={18} />
         </Button>
       </div>
     </section>
